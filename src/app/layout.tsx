@@ -3,6 +3,7 @@ import React from 'react';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import HeaderContainer from '@/components/Layouts/RootLayout/Header/HeaderContainer';
+import FooterContainer from '@/components/Layouts/RootLayout/Footer/FooterContainer';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -24,6 +25,8 @@ export default function RootLayout({
         <HeaderContainer />
 
         {children}
+
+        <FooterContainer />
       </body>
     </html>
   );
