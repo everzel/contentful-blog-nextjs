@@ -3,10 +3,10 @@
 import React from 'react';
 import { PostPageData } from '@/services/contentful/types/controllers/blog/post/get-controller';
 import BackButton from '@/components/UI/Buttons/BackButton';
-import { wsrvImageLoader } from '@/utils/imageLoader';
+import { wsrvImageLoader } from '@/lib/imageLoader';
 import Heading from '@/components/Topography/Heading';
 import AuthorCard from '@/components/Blog/Common/AuthorCard';
-import { formatDate } from '@/utils/formatDate';
+import { formatDate } from '@/lib/formatDate';
 
 interface ComponentProps {
   post: PostPageData;

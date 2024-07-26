@@ -13,7 +13,7 @@ import { gql } from 'graphql-request';
 
 export const getNavigationItem = async (
   slug: string,
-): Promise<NavigationItemData> => {
+): Promise<NavigationItemData | null> => {
   const query: string = gql`
       query {
           navigationCollection(where: { slug: "${slug}" }) {
@@ -36,9 +36,13 @@ export const getNavigationItem = async (
       }
   `;
 
-  const data: NavigationContentfulItemData = (
+  const data: NavigationContentfulItemData | undefined = (
     await contentfulClient<NavigationContentfulData>(query)
   ).navigationCollection.items[0];
+
+  if (!data) {
+    return null;
+  }
 
   return {
     links:

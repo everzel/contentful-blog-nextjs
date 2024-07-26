@@ -7,7 +7,7 @@ import type {
 import { gql } from 'graphql-request';
 import contentfulClient from '@/services/contentful/client';
 
-export const getPage = async (slug: string): Promise<PageItemData> => {
+export const getPage = async (slug: string): Promise<PageItemData | null> => {
   const query: string = gql`
       query {
           pageCollection(where: { slug: "${slug}" }) {
@@ -24,9 +24,13 @@ export const getPage = async (slug: string): Promise<PageItemData> => {
       }
   `;
 
-  const data: PageContentfulItemData = (
+  const data: PageContentfulItemData | undefined = (
     await contentfulClient<PageContentfulData>(query)
   ).pageCollection.items[0];
+
+  if (!data) {
+    return null;
+  }
 
   return {
     meta: {

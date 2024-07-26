@@ -8,7 +8,9 @@ import type {
 import contentfulClient from '@/services/contentful/client';
 import { gql } from 'graphql-request';
 
-export const getBlogAuthor = async (slug: string): Promise<AuthorPageData> => {
+export const getBlogAuthor = async (
+  slug: string,
+): Promise<AuthorPageData | null> => {
   const query: string = gql`
       query {
           blogAuthorCollection(
@@ -42,9 +44,13 @@ export const getBlogAuthor = async (slug: string): Promise<AuthorPageData> => {
       }
   `;
 
-  const data: AuthorContentfulItemData = (
+  const data: AuthorContentfulItemData | undefined = (
     await contentfulClient<AuthorContentfulData>(query)
   ).blogAuthorCollection.items[0];
+
+  if (!data) {
+    return null;
+  }
 
   let about: string | null = null;
 

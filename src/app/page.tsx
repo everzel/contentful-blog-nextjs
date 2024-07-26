@@ -4,8 +4,24 @@ import { PostItemData } from '@/services/contentful/types/controllers/blog/post/
 import { getBlogPosts } from '@/services/contentful/controllers/blog/post/list-controller';
 import GridItem from '@/components/Blog/Grid/GridItem';
 import Grid from '@/components/Blog/Grid/Grid';
+import { Metadata } from 'next';
+import { getPage } from '@/services/contentful/controllers/page/get-controller';
+import { headers } from 'next/headers';
+import { getMetadataFromContentfulMetaItem } from '@/lib/metadata';
 
 const posts: PostItemData[] = await getBlogPosts();
+
+export async function generateMetadata(): Promise<Metadata> {
+  const page = await getPage('homepage');
+
+  if (!page) {
+    return {};
+  }
+
+  const path = headers().get('x-current-path') || '/';
+
+  return getMetadataFromContentfulMetaItem(page.meta, path);
+}
 
 export default function Page(): React.ReactElement {
   return (
