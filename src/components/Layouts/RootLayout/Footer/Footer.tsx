@@ -2,13 +2,13 @@ import {
   NavigationItemData,
   NavigationSocialLinkItemData,
 } from '@/services/contentful/types/controllers/navigation/get-controller';
-import type { ComponentProps as SocialLinkComponentProps } from '@/components/Common/SocialLink';
+import type { ComponentProps as SocialLinkComponentProps } from '@/components/Layouts/RootLayout/Common/SocialLink';
 import Link from 'next/link';
 import { route } from '@/app/routes';
 import Image from 'next/image';
 import whiteLogo from '@/assets/images/logo/black-logo.svg';
 import React from 'react';
-import SocialLink from '@/components/Common/SocialLink';
+import SocialLink from '@/components/Layouts/RootLayout/Common/SocialLink';
 
 interface ComponentProps {
   navigationData: NavigationItemData;
@@ -35,22 +35,29 @@ export default function Footer({ navigationData }: ComponentProps) {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-7">
         <div className="flex items-center justify-between">
           <Link className="w-[200px]" href={route('home')}>
-            <Image src={whiteLogo} alt={process.env.APP_NAME as string} />
+            <Image
+              src={whiteLogo}
+              alt={process.env.NEXT_PUBLIC_APP_NAME as string}
+            />
           </Link>
 
           {navigationData.socialLinks.length && (
             <div className="flex space-x-4 sm:justify-center">
               {navigationData.socialLinks.map(
                 (link: NavigationSocialLinkItemData) => (
-                  <SocialLink
-                    icon={
-                      getSocialIconType(
-                        link.type,
-                      ) as SocialLinkComponentProps['icon']
-                    }
-                    url={link.url}
-                    key={link.url}
-                  />
+                  <>
+                    {getSocialIconType(link.type) && (
+                      <SocialLink
+                        icon={
+                          getSocialIconType(
+                            link.type,
+                          ) as SocialLinkComponentProps['icon']
+                        }
+                        url={link.url}
+                        key={link.url}
+                      />
+                    )}
+                  </>
                 ),
               )}
             </div>

@@ -1,18 +1,21 @@
 import type { Metadata } from 'next';
 import React from 'react';
-import { Inter } from 'next/font/google';
+import { Roboto } from 'next/font/google';
 import './globals.css';
 import HeaderContainer from '@/components/Layouts/RootLayout/Header/HeaderContainer';
 import FooterContainer from '@/components/Layouts/RootLayout/Footer/FooterContainer';
 
-const inter = Inter({ subsets: ['latin'] });
-
 export const metadata: Metadata = {
   title: {
-    default: 'Contentful blog',
-    template: '%s | Contentful blog',
+    default: process.env.NEXT_PUBLIC_APP_NAME as string,
+    template: `%s | ${process.env.NEXT_PUBLIC_APP_NAME}`,
   },
 };
+
+const roboto = Roboto({
+  weight: ['400', '500', '700'],
+  subsets: ['latin'],
+});
 
 export default function RootLayout({
   children,
@@ -21,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`bg-slate-50 ${roboto.className}`}>
         <HeaderContainer />
 
         {children}

@@ -8,6 +8,8 @@ type Replacements = {
 
 export const routes: Routes = {
   home: '/',
+  post: '/blog/:slug',
+  author: '/author/:slug',
 };
 
 export function route(name: string, replacements: Replacements = {}): string {

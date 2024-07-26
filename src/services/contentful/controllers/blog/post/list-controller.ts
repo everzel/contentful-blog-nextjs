@@ -1,6 +1,6 @@
 import type {
   GetBlogPostsParams,
-  PostCardData,
+  PostItemData,
   PostContentfulData,
   PostContentfulItemData,
 } from '@/services/contentful/types/controllers/blog/post/list-controller.d';
@@ -10,7 +10,7 @@ import { gql } from 'graphql-request';
 
 export const getBlogPosts = async (
   params: GetBlogPostsParams = {},
-): Promise<PostCardData[]> => {
+): Promise<PostItemData[]> => {
   const exceptedSlugs: string = JSON.stringify(params.exceptedSlugs ?? []);
   const limit: number = params.limit || 99;
 
@@ -50,7 +50,7 @@ export const getBlogPosts = async (
   ).blogPostCollection.items;
 
   return data.map(
-    (item: PostContentfulItemData): PostCardData => ({
+    (item: PostContentfulItemData): PostItemData => ({
       name: item.name,
       slug: item.slug,
       description: item.description,

@@ -2,8 +2,9 @@ import type {
   BasePostData,
   PostContentfulItemAuthorData,
 } from '@/services/contentful/types/controllers/blog/post/common.d';
+import { ImageContentfulData } from '@/services/contentful/types/image';
 
-export interface PostCardData extends BasePostData {
+export interface PostItemData extends BasePostData {
   description: string;
 }
 

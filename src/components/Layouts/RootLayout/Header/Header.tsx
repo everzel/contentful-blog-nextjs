@@ -32,8 +32,8 @@ export default function Header({
             <Link className="w-[200px]" href={route('home')}>
               <Image
                 src={blackLogo}
-                alt={process.env.APP_NAME as string}
-                loading="eager"
+                alt={process.env.NEXT_PUBLIC_APP_NAME as string}
+                priority={true}
               />
             </Link>
 
@@ -46,7 +46,7 @@ export default function Header({
                 className="w-6 h-6"
                 src={menuIcon}
                 alt="Menu icon"
-                loading="eager"
+                priority={true}
               />
             </button>
           </div>
