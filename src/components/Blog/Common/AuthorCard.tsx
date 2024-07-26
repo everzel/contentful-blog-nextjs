@@ -28,17 +28,17 @@ export default function AuthorCard({
         {type === 'link' && (
           <Link
             href={route('author', { slug: author.slug })}
-            className="absolute inset-0 w-full h-full"
+            className="absolute inset-0 w-full h-full z-10"
           />
         )}
 
         <Image
           loader={wsrvImageLoader}
           src={author.image_url}
-          width={size === 'small' ? 40 : 50}
-          height={size === 'small' ? 40 : 50}
+          width={size === 'small' ? 40 : 60}
+          height={size === 'small' ? 40 : 60}
           alt={author.name}
-          className={`rounded-full group-hover/author:opacity-70 mt-1 transition-all ${size === 'small' ? 'w-10 h-10' : 'w-12 h-12'}`}
+          className={`rounded-full group-hover/author:opacity-60 mt-1 transition-all ${size === 'small' ? 'w-10 h-10' : 'w-14 h-14'}`}
         />
 
         <div
