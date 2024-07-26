@@ -5,13 +5,6 @@ import './globals.css';
 import HeaderContainer from '@/components/Layouts/RootLayout/Header/HeaderContainer';
 import FooterContainer from '@/components/Layouts/RootLayout/Footer/FooterContainer';
 
-export const metadata: Metadata = {
-  title: {
-    default: process.env.NEXT_PUBLIC_APP_NAME as string,
-    template: `%s | ${process.env.NEXT_PUBLIC_APP_NAME}`,
-  },
-};
-
 const roboto = Roboto({
   weight: ['400', '700'],
   subsets: ['latin'],
