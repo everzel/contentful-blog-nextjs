@@ -27,9 +27,9 @@ export default function GridItem({ post }: ComponentProps): React.ReactElement {
           loader={wsrvImageLoader}
           src={post.image_url}
           width={380}
-          height={220}
+          height={0}
           alt={post.name}
-          className="rounded-t-2xl w-full min-h-[200px] md:min-h-[220px]"
+          className="rounded-t-2xl w-full min-h-[200px] md:min-h-[220px] h-auto object-cover"
         />
 
         <span className="text-sm block right-4 top-2 absolute bg-indigo-600 py-1 px-2 text-white rounded-lg shadow-lg">
