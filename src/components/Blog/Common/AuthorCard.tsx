@@ -50,11 +50,13 @@ export default function AuthorCard({
             {author.name}
           </span>
 
-          <span
-            className={`group-hover/author:text-gray-300 transition-all ${size === 'small' ? 'text-sm' : 'text-base'} ${color === 'white' ? 'text-gray-100' : 'text-gray-900'}`}
-          >
-            {author.position}
-          </span>
+          {author.position?.length && (
+            <span
+              className={`group-hover/author:text-gray-300 transition-all ${size === 'small' ? 'text-sm' : 'text-base'} ${color === 'white' ? 'text-gray-100' : 'text-gray-900'}`}
+            >
+              {author.position}
+            </span>
+          )}
         </div>
       </div>
     </>

@@ -18,7 +18,7 @@ const classesMap: {
   6: 'text-base md:text-lg font-bold',
 };
 
-export default function TopographyHeading({
+export default function Heading({
   level,
   children,
   tag,

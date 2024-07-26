@@ -4,7 +4,7 @@ import React from 'react';
 import { PostPageData } from '@/services/contentful/types/controllers/blog/post/get-controller';
 import BackButton from '@/components/UI/Buttons/BackButton';
 import { wsrvImageLoader } from '@/utils/imageLoader';
-import TopographyHeading from '@/components/Topography/TopographyHeading';
+import Heading from '@/components/Topography/Heading';
 import AuthorCard from '@/components/Blog/Common/AuthorCard';
 import { formatDate } from '@/utils/formatDate';
 
@@ -33,9 +33,9 @@ export default function Header({ post }: ComponentProps): React.ReactElement {
       </div>
 
       <div className="w-full max-w-lg md:max-w-2xl lg:max-w-4xl px-5 lg:px-11 mx-auto max-md:px-4 z-20 relative pt-28 pb-20">
-        <TopographyHeading level={1} className="text-white leading-tight mb-8">
+        <Heading level={1} className="text-white leading-tight mb-8">
           {post.name}
-        </TopographyHeading>
+        </Heading>
 
         <div className="flex items-center justify-between">
           <AuthorCard

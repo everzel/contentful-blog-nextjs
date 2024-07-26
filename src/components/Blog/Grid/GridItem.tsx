@@ -8,7 +8,7 @@ import Image from 'next/image';
 import { wsrvImageLoader } from '@/utils/imageLoader';
 import { formatDate } from '@/utils/formatDate';
 import AuthorCard from '@/components/Blog/Common/AuthorCard';
-import TopographyHeading from '@/components/Topography/TopographyHeading';
+import Heading from '@/components/Topography/Heading';
 
 interface ComponentProps {
   post: PostItemData;
@@ -43,12 +43,12 @@ export default function GridItem({ post }: ComponentProps): React.ReactElement {
           <AuthorCard author={post.author} />
         </div>
 
-        <TopographyHeading
+        <Heading
           level={5}
           className="!font-medium text-gray-900 leading-8 mb-3"
         >
           {post.name}
-        </TopographyHeading>
+        </Heading>
 
         <p className="text-gray-500 leading-6">{post.description}</p>
       </div>
