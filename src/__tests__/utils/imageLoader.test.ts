@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { wsrvImageLoader, WsrvImageLoaderOptions } from '@/lib/imageLoader';
 
-describe('imageLoader util', () => {
+describe('imageLoader', () => {
   describe('wsrv', () => {
     it('should return image URL', () => {
       const options = {

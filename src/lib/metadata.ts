@@ -3,9 +3,9 @@ import { MetaItemData } from '@/services/contentful/types/meta';
 
 export function getMetadataFromContentfulMetaItem(
   meta: MetaItemData,
-  url: string,
+  path: string,
 ): Metadata {
-  const pageURL = `${process.env.APP_URL}${url}`;
+  const pageURL = `${process.env.APP_URL}${path}`;
 
   return {
     title: meta.title,
