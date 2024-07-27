@@ -27,7 +27,7 @@ export default function Header({ author }: ComponentProps): React.ReactElement {
               src={author.background_url || defaultBackground}
               alt={`Background image for ${author.name}`}
               className="opacity-90 w-full h-full object-cover"
-              priority
+              priority={true}
               fill
             />
           </div>
@@ -40,7 +40,7 @@ export default function Header({ author }: ComponentProps): React.ReactElement {
               height={190}
               alt={author.name}
               className="border-4 border-solid border-white rounded-full w-[200px]"
-              priority
+              priority={true}
             />
           </div>
 

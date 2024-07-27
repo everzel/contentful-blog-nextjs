@@ -12,9 +12,13 @@ import Heading from '@/components/Topography/Heading';
 
 interface ComponentProps {
   post: PostItemData;
+  priority?: boolean;
 }
 
-export default function GridItem({ post }: ComponentProps): React.ReactElement {
+export default function GridItem({
+  post,
+  priority = false,
+}: ComponentProps): React.ReactElement {
   return (
     <div className="block group w-full border border-gray-300 rounded-2xl relative hover:bg-gray-100">
       <Link
@@ -30,7 +34,7 @@ export default function GridItem({ post }: ComponentProps): React.ReactElement {
           height={0}
           alt={post.name}
           className="rounded-t-2xl w-full min-h-[200px] md:min-h-[220px] h-auto object-cover"
-          priority
+          priority={priority}
         />
 
         <span className="text-sm block right-4 top-2 absolute bg-indigo-600 py-1 px-2 text-white rounded-lg shadow-lg">

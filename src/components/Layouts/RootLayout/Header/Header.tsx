@@ -33,7 +33,7 @@ export default function Header({
               <Image
                 src={blackLogo}
                 alt={process.env.NEXT_PUBLIC_APP_NAME as string}
-                priority
+                priority={true}
               />
             </Link>
 
@@ -46,7 +46,7 @@ export default function Header({
                 className="w-6 h-6"
                 src={menuIcon}
                 alt="Menu icon"
-                priority
+                priority={true}
               />
             </button>
           </div>

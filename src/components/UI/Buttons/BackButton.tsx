@@ -24,7 +24,7 @@ export default function BackButton({
         width={20}
         alt="Back"
         className="group-hover:-translate-x-2 relative transition ease-in-out"
-        priority
+        priority={true}
       />
 
       <span className="text-white">{children}</span>
