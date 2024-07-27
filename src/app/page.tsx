@@ -33,7 +33,7 @@ export default function Page(): React.ReactElement {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Grid>
           {posts.map((post, index) => (
-            <GridItem post={post} key={post.slug} priority={index < 3} />
+            <GridItem post={post} priority={index < 3} key={post.slug} />
           ))}
         </Grid>
       </div>

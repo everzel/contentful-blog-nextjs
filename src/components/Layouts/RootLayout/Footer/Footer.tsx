@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { route } from '@/app/routes';
 import Image from 'next/image';
 import whiteLogo from '@/assets/images/logo/black-logo.svg';
-import React from 'react';
+import React, { Fragment } from 'react';
 import SocialLink from '@/components/Layouts/RootLayout/Common/SocialLink';
 
 interface ComponentProps {
@@ -45,7 +45,7 @@ export default function Footer({ navigationData }: ComponentProps) {
             <div className="flex space-x-4 sm:justify-center">
               {navigationData.socialLinks.map(
                 (link: NavigationSocialLinkItemData) => (
-                  <>
+                  <Fragment key={link.url}>
                     {getSocialIconType(link.type) && (
                       <SocialLink
                         icon={
@@ -54,10 +54,9 @@ export default function Footer({ navigationData }: ComponentProps) {
                           ) as SocialLinkComponentProps['icon']
                         }
                         url={link.url}
-                        key={link.url}
                       />
                     )}
-                  </>
+                  </Fragment>
                 ),
               )}
             </div>

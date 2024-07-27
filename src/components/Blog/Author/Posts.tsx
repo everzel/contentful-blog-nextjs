@@ -26,7 +26,7 @@ export default async function Posts({
 
       <Grid>
         {posts.map((post, index) => (
-          <GridItem key={post.slug} post={post} priority={index < 3} />
+          <GridItem post={post} priority={index < 3} key={post.slug} />
         ))}
       </Grid>
     </section>
