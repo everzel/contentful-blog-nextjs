@@ -9,7 +9,7 @@ import menuIcon from '@/assets/icons/header/menu.svg';
 import {
   NavigationContentfulLinkItemData,
   NavigationItemData,
-} from '@/services/contentful/types/controllers/navigation/get-controller';
+} from '@/services/contentful/types/controllers/navigation/getController';
 
 interface ComponentProps {
   navigationData: NavigationItemData;

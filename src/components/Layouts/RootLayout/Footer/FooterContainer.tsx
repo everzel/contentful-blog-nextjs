@@ -1,5 +1,5 @@
 import React from 'react';
-import { getNavigationItem } from '@/services/contentful/controllers/navigation/get-controller';
+import { getNavigationItem } from '@/services/contentful/controllers/navigation/getController';
 import Footer from '@/components/Layouts/RootLayout/Footer/Footer';
 
 export default async function FooterContainer(): Promise<React.ReactElement> {

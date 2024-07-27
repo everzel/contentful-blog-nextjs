@@ -2,13 +2,13 @@ import type {
   PageContentfulData,
   PageContentfulItemData,
   PageItemData,
-} from '@/services/contentful/types/controllers/page/get-controller.d';
+} from '@/services/contentful/types/controllers/page/getController';
 
 import { gql } from 'graphql-request';
 import contentfulClient from '@/services/contentful/client';
 
 export const getPage = async (slug: string): Promise<PageItemData | null> => {
-  const query: string = gql`
+  const query = gql`
       query {
           pageCollection(where: { slug: "${slug}" }) {
               items {

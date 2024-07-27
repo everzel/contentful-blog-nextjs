@@ -1,4 +1,4 @@
-import { getNavigationItem } from '@/services/contentful/controllers/navigation/get-controller';
+import { getNavigationItem } from '@/services/contentful/controllers/navigation/getController';
 import Header from '@/components/Layouts/RootLayout/Header/Header';
 import React from 'react';
 

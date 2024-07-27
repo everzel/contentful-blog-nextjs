@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from '@/components/Blog/Post/Header';
-import { getBlogPost } from '@/services/contentful/controllers/blog/post/get-controller';
+import { getBlogPost } from '@/services/contentful/controllers/blog/post/getController';
 import Content from '@/components/Blog/Post/Content/Content';
 import RelatedPosts from '@/components/Blog/Post/RelatedPosts';
 import { notFound } from 'next/navigation';

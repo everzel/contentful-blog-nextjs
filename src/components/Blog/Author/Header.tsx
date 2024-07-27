@@ -1,6 +1,6 @@
 'use client';
 
-import { AuthorPageData } from '@/services/contentful/types/controllers/blog/author/get-controller';
+import { AuthorPageData } from '@/services/contentful/types/controllers/blog/author/getController';
 import React from 'react';
 import BackButton from '@/components/UI/Buttons/BackButton';
 import Image from 'next/image';

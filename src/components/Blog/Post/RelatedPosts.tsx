@@ -1,8 +1,8 @@
 import React from 'react';
 import Heading from '@/components/Topography/Heading';
 import Grid from '@/components/Blog/Grid/Grid';
-import { PostItemData } from '@/services/contentful/types/controllers/blog/post/list-controller';
-import { getBlogPosts } from '@/services/contentful/controllers/blog/post/list-controller';
+import { PostItemData } from '@/services/contentful/types/controllers/blog/post/listController';
+import { getBlogPosts } from '@/services/contentful/controllers/blog/post/listController';
 import GridItem from '@/components/Blog/Grid/GridItem';
 
 interface ComponentProps {

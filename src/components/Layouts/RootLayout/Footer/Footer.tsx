@@ -1,7 +1,7 @@
 import {
   NavigationItemData,
   NavigationSocialLinkItemData,
-} from '@/services/contentful/types/controllers/navigation/get-controller';
+} from '@/services/contentful/types/controllers/navigation/getController';
 import type { ComponentProps as SocialLinkComponentProps } from '@/components/Layouts/RootLayout/Common/SocialLink';
 import Link from 'next/link';
 import { route } from '@/app/routes';

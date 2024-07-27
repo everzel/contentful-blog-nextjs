@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { PostPageData } from '@/services/contentful/types/controllers/blog/post/get-controller';
+import { PostPageData } from '@/services/contentful/types/controllers/blog/post/getController';
 import BackButton from '@/components/UI/Buttons/BackButton';
 import { wsrvImageLoader } from '@/lib/imageLoader';
 import Heading from '@/components/Topography/Heading';

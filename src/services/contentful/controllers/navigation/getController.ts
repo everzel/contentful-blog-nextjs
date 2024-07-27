@@ -6,7 +6,7 @@ import type {
   NavigationItemData,
   NavigationLinkItemData,
   NavigationSocialLinkItemData,
-} from '@/services/contentful/types/controllers/navigation/get-controller';
+} from '@/services/contentful/types/controllers/navigation/getController';
 
 import contentfulClient from '@/services/contentful/client';
 import { gql } from 'graphql-request';
@@ -14,7 +14,7 @@ import { gql } from 'graphql-request';
 export const getNavigationItem = async (
   slug: string,
 ): Promise<NavigationItemData | null> => {
-  const query: string = gql`
+  const query = gql`
       query {
           navigationCollection(where: { slug: "${slug}" }) {
               items {
@@ -47,7 +47,7 @@ export const getNavigationItem = async (
   return {
     links:
       data.linksCollection?.items?.map(
-        (link: NavigationContentfulLinkItemData): NavigationLinkItemData => ({
+        (link): NavigationLinkItemData => ({
           name: link.name,
           url: link.url,
         }),
@@ -55,9 +55,7 @@ export const getNavigationItem = async (
 
     socialLinks:
       data.socialLinksCollection?.items?.map(
-        (
-          link: NavigationContentfulSocialLinkItemData,
-        ): NavigationSocialLinkItemData => ({
+        (link): NavigationSocialLinkItemData => ({
           type: link.type,
           url: link.url,
         }),

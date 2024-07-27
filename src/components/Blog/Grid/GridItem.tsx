@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { PostItemData } from '@/services/contentful/types/controllers/blog/post/list-controller';
+import { PostItemData } from '@/services/contentful/types/controllers/blog/post/listController';
 import Link from 'next/link';
 import { route } from '@/app/routes';
 import Image from 'next/image';

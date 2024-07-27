@@ -3,7 +3,7 @@ export default async function contentfulClient<T>(query: string): Promise<T> {
   const environmentId = process.env.CONTENTFUL_ENVIRONMENT_ID;
   const accessToken = process.env.CONTENTFUL_ACCESS_TOKEN;
 
-  const endpoint: string = `https://graphql.contentful.com/content/v1/spaces/${spaceId}/environments/${environmentId}`;
+  const endpoint = `https://graphql.contentful.com/content/v1/spaces/${spaceId}/environments/${environmentId}`;
 
   const res = await fetch(endpoint, {
     method: 'POST',

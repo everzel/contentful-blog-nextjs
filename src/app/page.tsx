@@ -1,11 +1,11 @@
 import Heading from '@/components/Topography/Heading';
 import React from 'react';
-import { PostItemData } from '@/services/contentful/types/controllers/blog/post/list-controller';
-import { getBlogPosts } from '@/services/contentful/controllers/blog/post/list-controller';
+import { PostItemData } from '@/services/contentful/types/controllers/blog/post/listController';
+import { getBlogPosts } from '@/services/contentful/controllers/blog/post/listController';
 import GridItem from '@/components/Blog/Grid/GridItem';
 import Grid from '@/components/Blog/Grid/Grid';
 import { Metadata } from 'next';
-import { getPage } from '@/services/contentful/controllers/page/get-controller';
+import { getPage } from '@/services/contentful/controllers/page/getController';
 import { headers } from 'next/headers';
 import { getMetadataFromContentfulMetaItem } from '@/lib/metadata';
 

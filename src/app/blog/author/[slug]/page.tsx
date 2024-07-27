@@ -1,5 +1,5 @@
 import React from 'react';
-import { getBlogAuthor } from '@/services/contentful/controllers/blog/author/get-controller';
+import { getBlogAuthor } from '@/services/contentful/controllers/blog/author/getController';
 import Header from '@/components/Blog/Author/Header';
 import Posts from '@/components/Blog/Author/Posts';
 import { notFound } from 'next/navigation';

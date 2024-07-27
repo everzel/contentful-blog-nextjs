@@ -2,7 +2,7 @@ import type {
   PostContentfulData,
   PostContentfulItemData,
   PostPageData,
-} from '@/services/contentful/types/controllers/blog/post/get-controller.d';
+} from '@/services/contentful/types/controllers/blog/post/getController';
 
 import contentfulClient from '@/services/contentful/client';
 import { gql } from 'graphql-request';
@@ -10,7 +10,7 @@ import { gql } from 'graphql-request';
 export const getBlogPost = async (
   slug: string,
 ): Promise<PostPageData | null> => {
-  const query: string = gql`
+  const query = gql`
       query {
           blogPostCollection(
               where: {
@@ -46,7 +46,7 @@ export const getBlogPost = async (
       }
   `;
 
-  const data: PostContentfulItemData | undefined = (
+  const data: PostContentfulItemData | null = (
     await contentfulClient<PostContentfulData>(query)
   ).blogPostCollection.items[0];
 

@@ -4,14 +4,14 @@ import type {
   AuthorContentfulItemAboutContentItemData,
   AuthorContentfulItemData,
   AuthorPageData,
-} from '@/services/contentful/types/controllers/blog/author/get-controller.d';
+} from '@/services/contentful/types/controllers/blog/author/getController';
 import contentfulClient from '@/services/contentful/client';
 import { gql } from 'graphql-request';
 
 export const getBlogAuthor = async (
   slug: string,
 ): Promise<AuthorPageData | null> => {
-  const query: string = gql`
+  const query = gql`
       query {
           blogAuthorCollection(
               where: {
@@ -44,7 +44,7 @@ export const getBlogAuthor = async (
       }
   `;
 
-  const data: AuthorContentfulItemData | undefined = (
+  const data: AuthorContentfulItemData | null = (
     await contentfulClient<AuthorContentfulData>(query)
   ).blogAuthorCollection.items[0];
 
@@ -52,17 +52,13 @@ export const getBlogAuthor = async (
     return null;
   }
 
-  let about: string | null = null;
+  let about = null;
 
   if (data.about?.json) {
     about = data.about.json.content
-      .map((element: AuthorContentfulItemAboutContentItemData): string => {
+      .map((element): string => {
         return element.content
-          .map(
-            (
-              contentElement: AuthorContentfulItemAboutContentItemContentItemData,
-            ): string => contentElement.value,
-          )
+          .map((contentElement): string => contentElement.value)
           .join('<br>');
       })
       .join('<br><br>');

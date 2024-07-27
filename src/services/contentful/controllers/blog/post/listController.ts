@@ -3,7 +3,7 @@ import type {
   PostItemData,
   PostContentfulData,
   PostContentfulItemData,
-} from '@/services/contentful/types/controllers/blog/post/list-controller.d';
+} from '@/services/contentful/types/controllers/blog/post/listController';
 
 import contentfulClient from '@/services/contentful/client';
 import { gql } from 'graphql-request';
@@ -11,10 +11,10 @@ import { gql } from 'graphql-request';
 export const getBlogPosts = async (
   params: GetBlogPostsParams = {},
 ): Promise<PostItemData[]> => {
-  const exceptedSlugs: string = JSON.stringify(params.exceptedSlugs ?? []);
-  const limit: number = params.limit || 99;
+  const exceptedSlugs = JSON.stringify(params.exceptedSlugs ?? []);
+  const limit = params.limit || 99;
 
-  const query: string = gql`
+  const query = gql`
       query {
           blogPostCollection(
               where: {
@@ -50,7 +50,7 @@ export const getBlogPosts = async (
   ).blogPostCollection.items;
 
   return data.map(
-    (item: PostContentfulItemData): PostItemData => ({
+    (item): PostItemData => ({
       name: item.name,
       slug: item.slug,
       description: item.description,
