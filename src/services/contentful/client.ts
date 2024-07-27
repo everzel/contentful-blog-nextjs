@@ -2,7 +2,6 @@ export default async function contentfulClient<T>(query: string): Promise<T> {
   const spaceId = process.env.CONTENTFUL_SPACE_ID;
   const environmentId = process.env.CONTENTFUL_ENVIRONMENT_ID;
   const accessToken = process.env.CONTENTFUL_ACCESS_TOKEN;
-  const cacheEnabled = process.env.CONTENTFUL_CACHE_ENABLED;
 
   const endpoint: string = `https://graphql.contentful.com/content/v1/spaces/${spaceId}/environments/${environmentId}`;
 
@@ -13,7 +12,6 @@ export default async function contentfulClient<T>(query: string): Promise<T> {
       Authorization: `Bearer ${accessToken}`,
     },
     body: JSON.stringify({ query }),
-    cache: cacheEnabled ? 'default' : 'no-store',
   });
 
   const json: {
