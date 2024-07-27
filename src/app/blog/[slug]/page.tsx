@@ -7,6 +7,7 @@ import { notFound } from 'next/navigation';
 import { getMetadataFromContentfulMetaItem } from '@/lib/metadata';
 import { route } from '@/app/routes';
 import { Metadata } from 'next';
+import { metadata as notFoundMetadata } from '@/app/not-found';
 
 interface ComponentProps {
   params: {
@@ -20,7 +21,7 @@ export async function generateMetadata({
   const post = await getBlogPost(params.slug);
 
   if (!post) {
-    return {};
+    return notFoundMetadata;
   }
 
   const path = route('post', { slug: post.slug });

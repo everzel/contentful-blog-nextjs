@@ -1,5 +1,4 @@
 import React from 'react';
-import Link from 'next/link';
 import { route } from '@/app/routes';
 import { Metadata } from 'next';
 import PrimaryButton from '@/components/UI/Buttons/PrimaryButton';

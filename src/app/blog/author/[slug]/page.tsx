@@ -6,6 +6,7 @@ import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import { getMetadataFromContentfulMetaItem } from '@/lib/metadata';
 import { route } from '@/app/routes';
+import { metadata as notFoundMetadata } from '@/app/not-found';
 
 interface ComponentProps {
   params: {
@@ -19,7 +20,7 @@ export async function generateMetadata({
   const author = await getBlogAuthor(params.slug);
 
   if (!author) {
-    return {};
+    return notFoundMetadata;
   }
 
   const path = route('author', { slug: author.slug });
