@@ -7,7 +7,7 @@ import Grid from '@/components/Blog/Grid/Grid';
 import { Metadata } from 'next';
 import { getPage } from '@/services/contentful/controllers/page/getController';
 import { headers } from 'next/headers';
-import { getMetadataFromContentfulMetaItem } from '@/lib/metadata';
+import { getMetadataFromContentfulMetaItem } from '@/utils/metadata';
 
 const posts: PostItemData[] = await getBlogPosts();
 

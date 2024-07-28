@@ -4,7 +4,7 @@ import { AuthorPageData } from '@/services/contentful/types/controllers/blog/aut
 import React from 'react';
 import BackButton from '@/components/UI/Buttons/BackButton';
 import Image from 'next/image';
-import { wsrvImageLoader } from '@/lib/imageLoader';
+import { wsrvImageLoader } from '@/utils/imageLoader';
 import defaultBackground from '@/assets/images/author/default-background.png';
 import Heading from '@/components/Topography/Heading';
 

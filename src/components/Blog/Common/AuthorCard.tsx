@@ -5,7 +5,7 @@ import { PostAuthorData } from '@/services/contentful/types/controllers/blog/pos
 import Link from 'next/link';
 import { route } from '@/app/routes';
 import Image from 'next/image';
-import { wsrvImageLoader } from '@/lib/imageLoader';
+import { wsrvImageLoader } from '@/utils/imageLoader';
 
 interface ComponentProps {
   author: PostAuthorData;
