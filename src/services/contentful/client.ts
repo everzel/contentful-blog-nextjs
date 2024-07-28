@@ -1,7 +1,7 @@
 export default async function contentfulClient<T>(query: string): Promise<T> {
-  const spaceId = process.env.CONTENTFUL_SPACE_ID;
-  const environmentId = process.env.CONTENTFUL_ENVIRONMENT_ID;
-  const accessToken = process.env.CONTENTFUL_ACCESS_TOKEN;
+  const spaceId = process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID;
+  const environmentId = process.env.NEXT_PUBLIC_CONTENTFUL_ENVIRONMENT_ID;
+  const accessToken = process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN;
 
   const endpoint = `https://graphql.contentful.com/content/v1/spaces/${spaceId}/environments/${environmentId}`;
 
