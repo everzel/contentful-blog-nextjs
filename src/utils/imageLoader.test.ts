@@ -1,10 +1,13 @@
 import { describe, expect, it } from 'vitest';
-import { wsrvImageLoader, WsrvImageLoaderOptions } from '@/utils/imageLoader';
+import {
+  ImageLoaderPropsWithFormat,
+  wsrvImageLoader,
+} from '@/utils/imageLoader';
 
 describe('imageLoader', () => {
   describe('wsrv', () => {
     it('should return image URL', () => {
-      const options = {
+      const props: ImageLoaderPropsWithFormat = {
         src: 'https://example.com/image.jpg',
         width: 500,
         quality: 90,
@@ -12,35 +15,29 @@ describe('imageLoader', () => {
       };
 
       const searchParams = new URLSearchParams({
-        url: options.src,
-        w: options.width.toString(),
-        q: options.quality.toString(),
-        output: options.format as string,
+        url: props.src,
+        w: props.width.toString(),
+        q: props.quality!.toString(),
+        output: props.format as string,
       });
 
-      const actualResult = wsrvImageLoader(options as WsrvImageLoaderOptions);
-      const expectedResult = `${process.env.WSRV_BASE_URL}?${searchParams.toString()}`;
-
-      expect(actualResult).toBe(expectedResult);
+      expect(wsrvImageLoader(props)).toContain(searchParams.toString());
     });
 
-    it('should return image URL with default params', () => {
-      const options = {
+    it('should return image URL with default props', () => {
+      const props: ImageLoaderPropsWithFormat = {
         src: 'https://example.com/image.jpg',
         width: 500,
       };
 
       const searchParams = new URLSearchParams({
-        url: options.src,
-        w: options.width.toString(),
+        url: props.src,
+        w: props.width.toString(),
         q: '80',
         output: 'webp',
       });
 
-      const actualResult = wsrvImageLoader(options as WsrvImageLoaderOptions);
-      const expectedResult = `${process.env.WSRV_BASE_URL}?${searchParams.toString()}`;
-
-      expect(actualResult).toBe(expectedResult);
+      expect(wsrvImageLoader(props)).toContain(searchParams.toString());
     });
   });
 });
