@@ -2,6 +2,7 @@ import {
   NavigationItemData,
   NavigationSocialLinkItemData,
 } from '@/services/contentful/types/controllers/navigation/getController';
+// If you rename "ComponentProps" to "SocialLinkComponentProps" in SocialLink, you won't need aliasing here
 import type { ComponentProps as SocialLinkComponentProps } from '@/components/Layouts/RootLayout/Common/SocialLink';
 import Link from 'next/link';
 import { route } from '@/app/routes';

@@ -11,6 +11,7 @@ import { gql } from 'graphql-request';
 export const getBlogPosts = async (
   params: GetBlogPostsParams = {},
 ): Promise<PostItemData[]> => {
+  // TODO: move gql code to .gql file (do the same for the other methods)
   const exceptedSlugs = JSON.stringify(params.exceptedSlugs ?? []);
   const limit = params.limit || 99;
 

@@ -15,9 +15,7 @@ interface ComponentProps {
   navigationData: NavigationItemData;
 }
 
-export default function Header({
-  navigationData,
-}: ComponentProps): React.ReactElement {
+export default function Header({ navigationData }: ComponentProps) {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
 
   const toggleMenu = () => {

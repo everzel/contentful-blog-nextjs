@@ -4,15 +4,17 @@ import { AuthorPageData } from '@/services/contentful/types/controllers/blog/aut
 import React from 'react';
 import BackButton from '@/components/UI/Buttons/BackButton';
 import Image from 'next/image';
-import { wsrvImageLoader } from '@/lib/imageLoader';
+import { wsrvImageLoader } from '@/utils/imageLoader';
 import defaultBackground from '@/assets/images/author/default-background.png';
 import Heading from '@/components/Topography/Heading';
 
+// TODO: rename to HeaderProps. Apply this approach to all components throughout the project.
+// And check the comment here - src/components/Layouts/RootLayout/Footer/Footer.tsx:5
 interface ComponentProps {
   author: AuthorPageData;
 }
 
-export default function Header({ author }: ComponentProps): React.ReactElement {
+export default function Header({ author }: ComponentProps) {
   return (
     <section className="relative pb-4 md:pb-8">
       <div className="w-full max-w-7xl mx-auto px-8 lg:px-11 max-md:px-4 pt-6 z-20 relative">

@@ -9,9 +9,8 @@ interface ComponentProps {
   exceptedSlug: string;
 }
 
-export default async function RelatedPosts({
-  exceptedSlug,
-}: ComponentProps): Promise<React.ReactElement> {
+export default async function RelatedPosts({ exceptedSlug }: ComponentProps) {
+  // TODO: The same as for <Posts/>. Fetch posts in parent component (page.tsx)
   const posts: PostItemData[] = await getBlogPosts({
     limit: 3,
     exceptedSlugs: [exceptedSlug],

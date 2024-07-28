@@ -1,11 +1,10 @@
-export interface WsrvImageLoaderOptions {
-  src: string;
-  width: number;
-  quality?: number;
-  format?: 'webp' | 'jpg' | 'png' | 'gif' | 'tiff';
-}
+import { ImageLoaderProps } from 'next/image';
 
-export function wsrvImageLoader(params: WsrvImageLoaderOptions): string {
+export type ImageLoaderPropsWithFormat = ImageLoaderProps & {
+  format?: 'webp' | 'jpg' | 'png' | 'gif' | 'tiff';
+};
+
+export function wsrvImageLoader(params: ImageLoaderPropsWithFormat) {
   const searchParams = new URLSearchParams({
     url: params.src,
     w: params.width.toString(),

@@ -4,7 +4,7 @@ import Header from '@/components/Blog/Author/Header';
 import Posts from '@/components/Blog/Author/Posts';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
-import { getMetadataFromContentfulMetaItem } from '@/lib/metadata';
+import { getMetadataFromContentfulMetaItem } from '@/utils/metadata';
 import { route } from '@/app/routes';
 import { metadata as notFoundMetadata } from '@/app/not-found';
 
@@ -28,9 +28,7 @@ export async function generateMetadata({
   return getMetadataFromContentfulMetaItem(author.meta, path);
 }
 
-export default async function Page({
-  params,
-}: ComponentProps): Promise<React.ReactElement> {
+export default async function Page({ params }: ComponentProps) {
   const author = await getBlogAuthor(params.slug);
 
   if (!author) {

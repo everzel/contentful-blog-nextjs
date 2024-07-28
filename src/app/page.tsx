@@ -5,38 +5,44 @@ import { getBlogPosts } from '@/services/contentful/controllers/blog/post/listCo
 import GridItem from '@/components/Blog/Grid/GridItem';
 import Grid from '@/components/Blog/Grid/Grid';
 import { Metadata } from 'next';
-import { getPage } from '@/services/contentful/controllers/page/getController';
 import { headers } from 'next/headers';
-import { getMetadataFromContentfulMetaItem } from '@/lib/metadata';
+import { getPageMetadata } from '@/utils/metadata';
+import { getPage as getPageNew } from '../contentful/Page/getPage';
+import { Page } from '../contentful/Page/Page';
 
 const posts: PostItemData[] = await getBlogPosts();
 
-export async function generateMetadata(): Promise<Metadata> {
-  const page = await getPage('homepage');
+const slug = 'homepage';
 
-  if (!page) {
-    return {};
-  }
+export async function generateMetadata(): Promise<Metadata> {
+  const page = await getPageNew(slug);
 
   const path = headers().get('x-current-path') || '/';
 
-  return getMetadataFromContentfulMetaItem(page.meta, path);
+  return page?.meta ? getPageMetadata(page.meta, path) : {};
 }
 
-export default function Page(): React.ReactElement {
-  return (
-    <section className="py-8 md:py-20">
-      <Heading level={1} className="mb-6 md:mb-12 text-center">
-        Latest posts
-      </Heading>
+export default async function Homepage() {
+  const page = await getPageNew(slug);
+  // TODO: call here getBlogPosts()
+  // remove /controllers stuff
+  // use generated types where possible (yarn generate:gql-types)
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <Grid>
-          {posts.map((post, index) => (
-            <GridItem post={post} priority={index < 3} key={post.slug} />
-          ))}
-        </Grid>
-      </div>
-    </section>
+  return (
+    <Page {...page}>
+      <section className="py-8 md:py-20">
+        <Heading level={1} className="mb-6 md:mb-12 text-center">
+          Latest posts
+        </Heading>
+
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <Grid>
+            {posts.map((post, index) => (
+              <GridItem post={post} priority={index < 3} key={post.slug} />
+            ))}
+          </Grid>
+        </div>
+      </section>
+    </Page>
   );
 }

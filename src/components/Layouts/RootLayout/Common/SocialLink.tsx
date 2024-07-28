@@ -5,10 +5,7 @@ export interface ComponentProps {
   url: string;
 }
 
-export default function SocialLink({
-  icon,
-  url,
-}: ComponentProps): React.ReactElement {
+export default function SocialLink({ icon, url }: ComponentProps) {
   return (
     <a
       href={url}
