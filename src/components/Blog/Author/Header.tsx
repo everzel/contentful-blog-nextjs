@@ -8,6 +8,8 @@ import { wsrvImageLoader } from '@/utils/imageLoader';
 import defaultBackground from '@/assets/images/author/default-background.png';
 import Heading from '@/components/Topography/Heading';
 
+// TODO: rename to HeaderProps. Apply this approach to all components throughout the project.
+// And check the comment here - src/components/Layouts/RootLayout/Footer/Footer.tsx:5
 interface ComponentProps {
   author: AuthorPageData;
 }

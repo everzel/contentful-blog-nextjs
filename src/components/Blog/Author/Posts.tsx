@@ -10,6 +10,8 @@ interface ComponentProps {
 }
 
 export default async function Posts({ authorSlug }: ComponentProps) {
+  // TODO: calling "getBlogPosts" is a bit of bad practice here, it's better to pass "posts" as a prop.
+  // Type "PostItemData[]" is not required here, since it's defined as the return type of "getBlogPosts"
   const posts: PostItemData[] = await getBlogPosts({ authorSlug });
 
   return (

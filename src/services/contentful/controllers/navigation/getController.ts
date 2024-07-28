@@ -41,7 +41,7 @@ export const getNavigationItem = async (
   ).navigationCollection.items[0];
 
   if (!data) {
-    return null;
+    return null; // TODO: { socialLinks: [], links: [] }
   }
 
   return {
