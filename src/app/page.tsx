@@ -23,7 +23,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return getMetadataFromContentfulMetaItem(page.meta, path);
 }
 
-export default function Page(): React.ReactElement {
+export default function Page() {
   return (
     <section className="py-8 md:py-20">
       <Heading level={1} className="mb-6 md:mb-12 text-center">

@@ -12,7 +12,7 @@ interface ComponentProps {
   post: PostPageData;
 }
 
-export default function Header({ post }: ComponentProps): React.ReactElement {
+export default function Header({ post }: ComponentProps) {
   const backgroundURL = wsrvImageLoader({
     src: post.image_url,
     width: 1400,

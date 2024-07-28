@@ -9,9 +9,7 @@ interface ComponentProps {
   authorSlug: string;
 }
 
-export default async function Posts({
-  authorSlug,
-}: ComponentProps): Promise<React.ReactElement> {
+export default async function Posts({ authorSlug }: ComponentProps) {
   const posts: PostItemData[] = await getBlogPosts({ authorSlug });
 
   return (

@@ -15,10 +15,7 @@ interface ComponentProps {
   priority?: boolean;
 }
 
-export default function GridItem({
-  post,
-  priority = false,
-}: ComponentProps): React.ReactElement {
+export default function GridItem({ post, priority = false }: ComponentProps) {
   return (
     <div className="block group w-full border border-gray-300 rounded-2xl relative hover:bg-gray-100">
       <Link

@@ -9,9 +9,7 @@ interface ComponentProps {
   children: React.ReactNode;
 }
 
-export default function BackButton({
-  children,
-}: ComponentProps): React.ReactElement {
+export default function BackButton({ children }: ComponentProps) {
   const router = useRouter();
 
   return (

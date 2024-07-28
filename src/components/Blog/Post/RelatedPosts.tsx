@@ -9,9 +9,7 @@ interface ComponentProps {
   exceptedSlug: string;
 }
 
-export default async function RelatedPosts({
-  exceptedSlug,
-}: ComponentProps): Promise<React.ReactElement> {
+export default async function RelatedPosts({ exceptedSlug }: ComponentProps) {
   const posts: PostItemData[] = await getBlogPosts({
     limit: 3,
     exceptedSlugs: [exceptedSlug],

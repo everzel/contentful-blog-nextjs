@@ -19,7 +19,7 @@ export default function AuthorCard({
   size = 'small',
   color = 'black',
   type = 'block',
-}: ComponentProps): React.ReactElement {
+}: ComponentProps) {
   return (
     <>
       <div

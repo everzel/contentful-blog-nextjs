@@ -23,7 +23,7 @@ export default function Heading({
   children,
   tag,
   className,
-}: ComponentProps): React.ReactElement {
+}: ComponentProps) {
   return React.createElement(
     tag || `h${level}`,
     {

@@ -12,7 +12,7 @@ interface ComponentProps {
   author: AuthorPageData;
 }
 
-export default function Header({ author }: ComponentProps): React.ReactElement {
+export default function Header({ author }: ComponentProps) {
   return (
     <section className="relative pb-4 md:pb-8">
       <div className="w-full max-w-7xl mx-auto px-8 lg:px-11 max-md:px-4 pt-6 z-20 relative">

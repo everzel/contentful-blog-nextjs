@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: `Page not found | ${process.env.NEXT_PUBLIC_APP_NAME}`,
 };
 
-export default function NotFound(): React.ReactElement {
+export default function NotFound() {
   return (
     <section className="bg-white py-24">
       <div className="py-8 px-4 mx-auto max-w-screen-xl">

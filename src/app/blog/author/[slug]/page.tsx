@@ -28,9 +28,7 @@ export async function generateMetadata({
   return getMetadataFromContentfulMetaItem(author.meta, path);
 }
 
-export default async function Page({
-  params,
-}: ComponentProps): Promise<React.ReactElement> {
+export default async function Page({ params }: ComponentProps) {
   const author = await getBlogAuthor(params.slug);
 
   if (!author) {
