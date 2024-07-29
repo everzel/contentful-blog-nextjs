@@ -8,11 +8,11 @@ import { wsrvImageLoader } from '@/utils/imageLoader/imageLoader';
 import defaultBackground from '@/assets/images/author/default-background.png';
 import Heading from '@/components/Topography/Heading';
 
-interface ComponentProps {
+interface HeaderProps {
   author: AuthorPageData;
 }
 
-export default function Header({ author }: ComponentProps): React.ReactElement {
+export default function Header({ author }: HeaderProps) {
   return (
     <section className="relative pb-4 md:pb-8">
       <div className="w-full max-w-7xl mx-auto px-8 lg:px-11 max-md:px-4 pt-6 z-20 relative">

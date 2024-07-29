@@ -10,15 +10,12 @@ import { formatDate } from '@/utils/formatDate/formatDate';
 import AuthorCard from '@/components/Blog/Common/AuthorCard';
 import Heading from '@/components/Topography/Heading';
 
-interface ComponentProps {
+interface GridItemProps {
   post: PostItemData;
   priority?: boolean;
 }
 
-export default function GridItem({
-  post,
-  priority = false,
-}: ComponentProps): React.ReactElement {
+export default function GridItem({ post, priority = false }: GridItemProps) {
   return (
     <div className="block group w-full border border-gray-300 rounded-2xl relative hover:bg-gray-100">
       <Link

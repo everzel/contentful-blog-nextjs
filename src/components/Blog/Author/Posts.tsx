@@ -5,13 +5,11 @@ import Heading from '@/components/Topography/Heading';
 import Grid from '@/components/Blog/Grid/Grid';
 import GridItem from '@/components/Blog/Grid/GridItem';
 
-interface ComponentProps {
+interface PostsProps {
   authorSlug: string;
 }
 
-export default async function Posts({
-  authorSlug,
-}: ComponentProps): Promise<React.ReactElement> {
+export default async function Posts({ authorSlug }: PostsProps) {
   const posts: PostItemData[] = await getBlogPosts({ authorSlug });
 
   return (

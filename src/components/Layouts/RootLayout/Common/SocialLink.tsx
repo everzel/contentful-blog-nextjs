@@ -1,14 +1,11 @@
 import React from 'react';
 
-export interface ComponentProps {
+export interface SocialLinkProps {
   icon: 'twitter' | 'instagram';
   url: string;
 }
 
-export default function SocialLink({
-  icon,
-  url,
-}: ComponentProps): React.ReactElement {
+export default function SocialLink({ icon, url }: SocialLinkProps) {
   return (
     <a
       href={url}

@@ -4,7 +4,7 @@ import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
 import { useEffect } from 'react';
 
-export default function Loading(): null {
+export default function Loading() {
   useEffect(() => {
     NProgress.start();
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface ComponentProps {
+interface HeadingProps {
   level: 1 | 2 | 3 | 4 | 5 | 6;
   tag?: string;
   className?: string;
@@ -23,7 +23,7 @@ export default function Heading({
   children,
   tag,
   className,
-}: ComponentProps): React.ReactElement {
+}: HeadingProps) {
   return React.createElement(
     tag || `h${level}`,
     {

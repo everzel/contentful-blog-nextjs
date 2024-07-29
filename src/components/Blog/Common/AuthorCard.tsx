@@ -7,7 +7,7 @@ import { route } from '@/app/routes';
 import Image from 'next/image';
 import { wsrvImageLoader } from '@/utils/imageLoader/imageLoader';
 
-interface ComponentProps {
+interface AuthorCardProps {
   author: PostAuthorData;
   size?: 'small' | 'large';
   color?: 'white' | 'black';
@@ -19,7 +19,7 @@ export default function AuthorCard({
   size = 'small',
   color = 'black',
   type = 'block',
-}: ComponentProps): React.ReactElement {
+}: AuthorCardProps) {
   return (
     <>
       <div

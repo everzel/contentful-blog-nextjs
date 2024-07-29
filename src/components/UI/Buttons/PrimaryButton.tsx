@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-interface ComponentProps {
+interface PrimaryButtonProps {
   children: React.ReactNode;
   className?: string;
   tag?: 'button' | 'a';
@@ -18,7 +18,7 @@ export default function PrimaryButton({
   href,
   tag = 'button',
   ...props
-}: ComponentProps) {
+}: PrimaryButtonProps) {
   return (
     <>
       {tag === 'button' && (

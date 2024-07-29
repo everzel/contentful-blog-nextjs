@@ -2,7 +2,7 @@ import {
   NavigationItemData,
   NavigationSocialLinkItemData,
 } from '@/services/contentful/types/controllers/navigation/getController';
-import type { ComponentProps as SocialLinkComponentProps } from '@/components/Layouts/RootLayout/Common/SocialLink';
+import type { SocialLinkProps } from '@/components/Layouts/RootLayout/Common/SocialLink';
 import Link from 'next/link';
 import { route } from '@/app/routes';
 import Image from 'next/image';
@@ -10,7 +10,7 @@ import whiteLogo from '@/assets/images/logo/black-logo.svg';
 import React, { Fragment } from 'react';
 import SocialLink from '@/components/Layouts/RootLayout/Common/SocialLink';
 
-interface ComponentProps {
+interface FooterProps {
   navigationData: NavigationItemData;
 }
 
@@ -29,16 +29,13 @@ const getSocialIconType = (
   }
 };
 
-export default function Footer({ navigationData }: ComponentProps) {
+export default function Footer({ navigationData }: FooterProps) {
   return (
     <footer className="w-full bg-slate-50 border-t border-solid border-indigo-100">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-7">
         <div className="flex items-center justify-between">
           <Link className="w-[200px]" href={route('home')}>
-            <Image
-              src={whiteLogo}
-              alt={process.env.NEXT_PUBLIC_APP_NAME as string}
-            />
+            <Image src={whiteLogo} alt={process.env.NEXT_PUBLIC_APP_NAME!} />
           </Link>
 
           {navigationData.socialLinks.length && (
@@ -51,7 +48,7 @@ export default function Footer({ navigationData }: ComponentProps) {
                         icon={
                           getSocialIconType(
                             link.type,
-                          ) as SocialLinkComponentProps['icon']
+                          ) as SocialLinkProps['icon']
                         }
                         url={link.url}
                       />

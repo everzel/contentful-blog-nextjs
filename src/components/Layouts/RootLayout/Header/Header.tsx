@@ -11,13 +11,11 @@ import {
   NavigationItemData,
 } from '@/services/contentful/types/controllers/navigation/getController';
 
-interface ComponentProps {
+interface HeaderProps {
   navigationData: NavigationItemData;
 }
 
-export default function Header({
-  navigationData,
-}: ComponentProps): React.ReactElement {
+export default function Header({ navigationData }: HeaderProps) {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
 
   const toggleMenu = () => {
@@ -32,7 +30,7 @@ export default function Header({
             <Link className="w-[200px]" href={route('home')}>
               <Image
                 src={blackLogo}
-                alt={process.env.NEXT_PUBLIC_APP_NAME as string}
+                alt={process.env.NEXT_PUBLIC_APP_NAME!}
                 priority={true}
               />
             </Link>
@@ -53,16 +51,14 @@ export default function Header({
 
           <div className={`lg:flex lg:pl-11 ${!isOpenMenu ? 'hidden' : ''}`}>
             <ul className="lg:flex items-center flex-col mt-4 lg:mt-0 lg:flex-row">
-              {navigationData.links.map(
-                (link: NavigationContentfulLinkItemData) => (
-                  <li
-                    key={link.url}
-                    className="mb-2 px-3 block lg:mr-6 mr-4 md:mb-0 lg:text-left text-center transition-all duration-700 text-gray-900 hover:text-gray-600 text-base font-medium leading-6"
-                  >
-                    <Link href={link.url}>{link.name}</Link>
-                  </li>
-                ),
-              )}
+              {navigationData.links.map((link) => (
+                <li
+                  key={link.url}
+                  className="mb-2 px-3 block lg:mr-6 mr-4 md:mb-0 lg:text-left text-center transition-all duration-700 text-gray-900 hover:text-gray-600 text-base font-medium leading-6"
+                >
+                  <Link href={link.url}>{link.name}</Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>

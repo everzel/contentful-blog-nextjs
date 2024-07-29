@@ -8,11 +8,11 @@ import Heading from '@/components/Topography/Heading';
 import AuthorCard from '@/components/Blog/Common/AuthorCard';
 import { formatDate } from '@/utils/formatDate/formatDate';
 
-interface ComponentProps {
+interface HeaderProps {
   post: PostPageData;
 }
 
-export default function Header({ post }: ComponentProps): React.ReactElement {
+export default function Header({ post }: HeaderProps) {
   const backgroundURL = wsrvImageLoader({
     src: post.image_url,
     width: 1400,

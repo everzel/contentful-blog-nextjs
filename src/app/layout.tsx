@@ -1,4 +1,3 @@
-import type { Metadata } from 'next';
 import React from 'react';
 import { Roboto } from 'next/font/google';
 import './globals.css';
@@ -10,11 +9,11 @@ const roboto = Roboto({
   subsets: ['latin'],
 });
 
-export default function RootLayout({
-  children,
-}: Readonly<{
+interface RootLayoutProps {
   children: React.ReactNode;
-}>) {
+}
+
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
       <body className={`bg-slate-50 ${roboto.className}`}>

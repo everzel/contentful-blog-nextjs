@@ -5,13 +5,13 @@ import { PostItemData } from '@/services/contentful/types/controllers/blog/post/
 import { getBlogPosts } from '@/services/contentful/controllers/blog/post/listController';
 import GridItem from '@/components/Blog/Grid/GridItem';
 
-interface ComponentProps {
+interface RelatedPostsProps {
   exceptedSlug: string;
 }
 
 export default async function RelatedPosts({
   exceptedSlug,
-}: ComponentProps): Promise<React.ReactElement> {
+}: RelatedPostsProps) {
   const posts: PostItemData[] = await getBlogPosts({
     limit: 3,
     exceptedSlugs: [exceptedSlug],

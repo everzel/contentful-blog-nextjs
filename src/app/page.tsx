@@ -9,9 +9,7 @@ import { getPage } from '@/services/contentful/controllers/page/getController';
 import { headers } from 'next/headers';
 import { getMetadataFromContentfulMetaItem } from '@/utils/metadata/metadata';
 
-const posts: PostItemData[] = await getBlogPosts();
-
-export async function generateMetadata(): Promise<Metadata> {
+export async function generateMetadata() {
   const page = await getPage('homepage');
 
   if (!page) {
@@ -23,7 +21,9 @@ export async function generateMetadata(): Promise<Metadata> {
   return getMetadataFromContentfulMetaItem(page.meta, path);
 }
 
-export default function Page(): React.ReactElement {
+export default async function Homepage() {
+  const posts: PostItemData[] = await getBlogPosts();
+
   return (
     <section className="py-8 md:py-20">
       <Heading level={1} className="mb-6 md:mb-12 text-center">
