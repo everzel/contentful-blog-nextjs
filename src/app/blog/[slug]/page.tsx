@@ -4,7 +4,7 @@ import { getBlogPost } from '@/services/contentful/controllers/blog/post/getCont
 import Content from '@/components/Blog/Post/Content/Content';
 import RelatedPosts from '@/components/Blog/Post/RelatedPosts';
 import { notFound } from 'next/navigation';
-import { getMetadataFromContentfulMetaItem } from '@/lib/metadata';
+import { getMetadataFromContentfulMetaItem } from '@/utils/metadata/metadata';
 import { route } from '@/app/routes';
 import { Metadata } from 'next';
 import { metadata as notFoundMetadata } from '@/app/not-found';

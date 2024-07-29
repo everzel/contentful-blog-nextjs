@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { NextRequest } from 'next/server';
-import setPathMiddleware from '@/middlewares/setPathMiddleware';
+import setPathMiddleware from '@/middlewares/setPathMiddleware/setPathMiddleware';
 
 describe('setPathMiddleware', () => {
   it('should set path', () => {

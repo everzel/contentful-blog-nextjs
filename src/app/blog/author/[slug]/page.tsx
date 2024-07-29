@@ -4,7 +4,7 @@ import Header from '@/components/Blog/Author/Header';
 import Posts from '@/components/Blog/Author/Posts';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
-import { getMetadataFromContentfulMetaItem } from '@/lib/metadata';
+import { getMetadataFromContentfulMetaItem } from '@/utils/metadata/metadata';
 import { route } from '@/app/routes';
 import { metadata as notFoundMetadata } from '@/app/not-found';
 

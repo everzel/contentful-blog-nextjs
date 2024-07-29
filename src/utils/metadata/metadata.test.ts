@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from 'vitest';
 import { MetaItemData } from '@/services/contentful/types/meta';
-import { getMetadataFromContentfulMetaItem } from '@/lib/metadata';
+import { getMetadataFromContentfulMetaItem } from '@/utils/metadata/metadata';
 
 process.env = Object.assign(process.env, {
   APP_URL: 'https://example.com',

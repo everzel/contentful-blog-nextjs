@@ -5,8 +5,8 @@ import { PostItemData } from '@/services/contentful/types/controllers/blog/post/
 import Link from 'next/link';
 import { route } from '@/app/routes';
 import Image from 'next/image';
-import { wsrvImageLoader } from '@/lib/imageLoader';
-import { formatDate } from '@/lib/formatDate';
+import { wsrvImageLoader } from '@/utils/imageLoader/imageLoader';
+import { formatDate } from '@/utils/formatDate/formatDate';
 import AuthorCard from '@/components/Blog/Common/AuthorCard';
 import Heading from '@/components/Topography/Heading';
 

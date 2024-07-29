@@ -1,5 +1,8 @@
 import { describe, expect, it } from 'vitest';
-import { wsrvImageLoader, WsrvImageLoaderOptions } from '@/lib/imageLoader';
+import {
+  wsrvImageLoader,
+  WsrvImageLoaderOptions,
+} from '@/utils/imageLoader/imageLoader';
 
 describe('imageLoader', () => {
   describe('wsrv', () => {
