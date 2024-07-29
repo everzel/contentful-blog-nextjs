@@ -6,16 +6,13 @@ import Link from 'next/link';
 import Image from 'next/image';
 import blackLogo from '@/assets/images/logo/black-logo.svg';
 import menuIcon from '@/assets/icons/header/menu.svg';
-import {
-  NavigationContentfulLinkItemData,
-  NavigationItemData,
-} from '@/services/contentful/types/controllers/navigation/getController';
+import { NavigationItemData } from '@/services/contentful/types/controllers/navigation/getController';
 
 interface HeaderProps {
-  navigationData: NavigationItemData;
+  data: NavigationItemData;
 }
 
-export default function Header({ navigationData }: HeaderProps) {
+export default function Header({ data }: HeaderProps) {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
 
   const toggleMenu = () => {
@@ -51,7 +48,7 @@ export default function Header({ navigationData }: HeaderProps) {
 
           <div className={`lg:flex lg:pl-11 ${!isOpenMenu ? 'hidden' : ''}`}>
             <ul className="lg:flex items-center flex-col mt-4 lg:mt-0 lg:flex-row">
-              {navigationData.links.map((link) => (
+              {data.links.map((link) => (
                 <li
                   key={link.url}
                   className="mb-2 px-3 block lg:mr-6 mr-4 md:mb-0 lg:text-left text-center transition-all duration-700 text-gray-900 hover:text-gray-600 text-base font-medium leading-6"
