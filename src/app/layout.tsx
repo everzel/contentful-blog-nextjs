@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 import { Roboto } from 'next/font/google';
 import './globals.css';
 import HeaderContainer from '@/components/Layouts/RootLayout/Header/HeaderContainer';
@@ -9,11 +9,7 @@ const roboto = Roboto({
   subsets: ['latin'],
 });
 
-interface RootLayoutProps {
-  children: React.ReactNode;
-}
-
-export default function RootLayout({ children }: RootLayoutProps) {
+export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en">
       <body className={`bg-slate-50 ${roboto.className}`}>

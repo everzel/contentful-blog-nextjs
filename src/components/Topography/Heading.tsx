@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 
-interface HeadingProps {
+interface HeadingProps extends PropsWithChildren {
   level: 1 | 2 | 3 | 4 | 5 | 6;
   tag?: string;
   className?: string;
-  children: React.ReactNode;
 }
 
 const classesMap: {

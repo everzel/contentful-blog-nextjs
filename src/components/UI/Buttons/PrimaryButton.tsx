@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 import Link from 'next/link';
 
-interface PrimaryButtonProps {
-  children: React.ReactNode;
+interface PrimaryButtonProps extends PropsWithChildren {
   className?: string;
   tag?: 'button' | 'a';
   href?: string;
