@@ -6,6 +6,7 @@ import { notFound } from 'next/navigation';
 import { getMetadataFromContentfulMetaItem } from '@/utils/metadata/metadata';
 import { route } from '@/app/routes';
 import { metadata as notFoundMetadata } from '@/app/not-found';
+import { getBlogPosts } from '@/services/contentful/controllers/blog/post/listController';
 
 interface AuthorPageProps {
   params: {
@@ -27,6 +28,7 @@ export async function generateMetadata({ params }: AuthorPageProps) {
 
 export default async function AuthorPage({ params }: AuthorPageProps) {
   const author = await getBlogAuthor(params.slug);
+  const posts = await getBlogPosts({ authorSlug: params.slug });
 
   if (!author) {
     notFound();
@@ -35,7 +37,7 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
   return (
     <>
       <Header author={author} />
-      <Posts authorSlug={author.slug} />
+      <Posts posts={posts} />
     </>
   );
 }

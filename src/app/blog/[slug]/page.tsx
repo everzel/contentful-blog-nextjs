@@ -7,6 +7,7 @@ import { notFound } from 'next/navigation';
 import { getMetadataFromContentfulMetaItem } from '@/utils/metadata/metadata';
 import { route } from '@/app/routes';
 import { metadata as notFoundMetadata } from '@/app/not-found';
+import { getBlogPosts } from '@/services/contentful/controllers/blog/post/listController';
 
 interface PostPageProps {
   params: {
@@ -28,6 +29,10 @@ export async function generateMetadata({ params }: PostPageProps) {
 
 export default async function Post({ params }: PostPageProps) {
   const post = await getBlogPost(params.slug);
+  const relatedPosts = await getBlogPosts({
+    limit: 3,
+    exceptedSlugs: [params.slug],
+  });
 
   if (!post) {
     notFound();
@@ -37,7 +42,7 @@ export default async function Post({ params }: PostPageProps) {
     <>
       <Header post={post} />
       <Content content={post.content} />
-      <RelatedPosts exceptedSlug={post.slug} />
+      <RelatedPosts posts={relatedPosts} />
     </>
   );
 }
