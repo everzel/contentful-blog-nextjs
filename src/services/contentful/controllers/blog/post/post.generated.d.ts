@@ -1,4 +1,4 @@
-import * as Types from '../../../../../../types/graphql-global-types.generated.d';
+import * as Types from '../../../../../types/graphql-global-types.generated.d';
 
 export type PostItemMetaFragmentFragment = {
   __typename?: 'Meta';
