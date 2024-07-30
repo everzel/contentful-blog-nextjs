@@ -4,12 +4,12 @@ export type ImageLoaderPropsWithFormat = ImageLoaderProps & {
   format?: 'webp' | 'jpg' | 'png' | 'gif' | 'tiff';
 };
 
-export function wsrvImageLoader(params: ImageLoaderPropsWithFormat): string {
+export function wsrvImageLoader(props: ImageLoaderPropsWithFormat): string {
   const searchParams = new URLSearchParams({
-    url: params.src,
-    w: params.width.toString(),
-    q: (params.quality || 80).toString(),
-    output: params.format || 'webp',
+    url: props.src,
+    w: props.width.toString(),
+    q: (props.quality || 80).toString(),
+    output: props.format || 'webp',
   });
 
   return `${process.env.NEXT_PUBLIC_WSRV_BASE_URL}?${searchParams.toString()}`;
