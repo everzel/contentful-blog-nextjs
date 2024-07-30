@@ -1,24 +1,18 @@
 import Heading from '@/components/Topography/Heading';
 import React from 'react';
 import { PostItemData } from '@/services/contentful/types/controllers/blog/post/listController';
-import { getBlogPosts } from '@/services/contentful/controllers/blog/post/listController';
+import { getBlogPosts } from '@/services/contentful/controllers/blog/post/list/controller';
 import GridItem from '@/components/Blog/Grid/GridItem';
 import Grid from '@/components/Blog/Grid/Grid';
-import { Metadata } from 'next';
-import { getPage } from '@/services/contentful/controllers/page/getController';
+import { getPage } from '@/services/contentful/controllers/page/get/controller';
 import { headers } from 'next/headers';
 import { getMetadataFromContentfulMetaItem } from '@/utils/metadata/metadata';
 
 export async function generateMetadata() {
   const page = await getPage('homepage');
-
-  if (!page) {
-    return {};
-  }
-
   const path = headers().get('x-current-path') || '/';
 
-  return getMetadataFromContentfulMetaItem(page.meta, path);
+  return page?.meta ? getMetadataFromContentfulMetaItem(page.meta, path) : {};
 }
 
 export default async function Homepage() {

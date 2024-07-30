@@ -1,34 +1,34 @@
 import { Metadata } from 'next';
-import { MetaItemData } from '@/services/contentful/types/meta';
+import { PageItemMetaFragmentFragment } from '@/services/contentful/controllers/page/get/query.generated';
 
 export function getMetadataFromContentfulMetaItem(
-  meta: MetaItemData,
+  metadata: PageItemMetaFragmentFragment,
   path: string,
 ): Metadata {
   const pageURL = `${process.env.APP_URL}${path}`;
 
   return {
-    title: meta.title,
-    description: meta.description,
+    title: metadata.title,
+    description: metadata.description,
 
     robots: {
-      index: meta.indexable,
-      follow: meta.indexable,
+      index: metadata.indexable,
+      follow: metadata.indexable,
     },
 
     openGraph: {
       type: 'website',
       url: pageURL,
-      title: meta.title,
-      description: meta.description,
-      images: meta.image_url,
+      title: metadata.title,
+      description: metadata.description,
+      images: metadata.image?.url,
     },
 
     twitter: {
       card: 'summary_large_image',
-      title: meta.title,
-      description: meta.description,
-      images: meta.image_url,
+      title: metadata.title,
+      description: metadata.description,
+      images: metadata.image?.url,
     },
 
     alternates: {

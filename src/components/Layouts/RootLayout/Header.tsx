@@ -6,10 +6,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import blackLogo from '@/assets/images/logo/black-logo.svg';
 import menuIcon from '@/assets/icons/header/menu.svg';
-import { NavigationItemData } from '@/services/contentful/types/controllers/navigation/getController';
+import { NavigationFragmentFragment } from '@/services/contentful/controllers/navigation/get/getNavigation.generated';
 
 interface HeaderProps {
-  data: NavigationItemData;
+  data: NavigationFragmentFragment | null;
 }
 
 export default function Header({ data }: HeaderProps) {
@@ -48,12 +48,12 @@ export default function Header({ data }: HeaderProps) {
 
           <div className={`lg:flex lg:pl-11 ${!isOpenMenu ? 'hidden' : ''}`}>
             <ul className="lg:flex items-center flex-col mt-4 lg:mt-0 lg:flex-row">
-              {data.links.map((link) => (
+              {data?.linksCollection?.items.map((link) => (
                 <li
                   key={link.url}
                   className="mb-2 px-3 block lg:mr-6 mr-4 md:mb-0 lg:text-left text-center transition-all duration-700 text-gray-900 hover:text-gray-600 text-base font-medium leading-6"
                 >
-                  <Link href={link.url}>{link.name}</Link>
+                  <Link href={link.url!}>{link.name}</Link>
                 </li>
               ))}
             </ul>

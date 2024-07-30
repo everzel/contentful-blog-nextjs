@@ -2,10 +2,10 @@ import React from 'react';
 import Heading from '@/components/Topography/Heading';
 import Grid from '@/components/Blog/Grid/Grid';
 import GridItem from '@/components/Blog/Grid/GridItem';
-import { PostItemData } from '@/services/contentful/types/controllers/blog/post/listController';
+import { PostsItemFragmentFragment } from '@/services/contentful/controllers/blog/post/list/query.generated';
 
 interface RelatedPostsProps {
-  posts: PostItemData[];
+  posts: PostsItemFragmentFragment[];
 }
 
 export default async function RelatedPosts({ posts }: RelatedPostsProps) {

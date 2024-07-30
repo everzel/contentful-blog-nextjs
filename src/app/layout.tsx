@@ -1,7 +1,7 @@
 import React, { PropsWithChildren } from 'react';
 import { Roboto } from 'next/font/google';
 import './globals.css';
-import { getNavigationItem } from '@/services/contentful/controllers/navigation/getController';
+import { getNavigationItem } from '@/services/contentful/controllers/navigation/get/controller';
 import Footer from '@/components/Layouts/RootLayout/Footer/Footer';
 import Header from '@/components/Layouts/RootLayout/Header';
 

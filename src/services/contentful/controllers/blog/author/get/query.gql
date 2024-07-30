@@ -1,0 +1,34 @@
+fragment AuthorItemMetaFragment on Meta {
+  title
+  description
+  indexable
+  image {
+    url
+  }
+}
+
+fragment AuthorItemFragment on BlogAuthor {
+  name
+  slug
+  position
+  meta {
+    ...AuthorItemMetaFragment
+  }
+  about {
+    json
+  }
+  avatar {
+    url
+  }
+  background {
+    url
+  }
+}
+
+query AuthorEntry($slug: String!) {
+  blogAuthorCollection(where: { slug: $slug }) {
+    items {
+      ...AuthorItemFragment
+    }
+  }
+}

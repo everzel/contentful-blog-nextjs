@@ -1,13 +1,13 @@
 import React from 'react';
 import Header from '@/components/Blog/Post/Header';
-import { getBlogPost } from '@/services/contentful/controllers/blog/post/getController';
+import { getBlogPost } from '@/services/contentful/controllers/blog/post/get/сontroller';
 import Content from '@/components/Blog/Post/Content/Content';
 import RelatedPosts from '@/components/Blog/Post/RelatedPosts';
 import { notFound } from 'next/navigation';
 import { getMetadataFromContentfulMetaItem } from '@/utils/metadata/metadata';
 import { route } from '@/app/routes';
 import { metadata as notFoundMetadata } from '@/app/not-found';
-import { getBlogPosts } from '@/services/contentful/controllers/blog/post/listController';
+import { getBlogPosts } from '@/services/contentful/controllers/blog/post/list/controller';
 
 interface PostPageProps {
   params: {
@@ -17,14 +17,11 @@ interface PostPageProps {
 
 export async function generateMetadata({ params }: PostPageProps) {
   const post = await getBlogPost(params.slug);
-
-  if (!post) {
-    return notFoundMetadata;
-  }
-
   const path = route('post', { slug: post.slug });
 
-  return getMetadataFromContentfulMetaItem(post.meta, path);
+  return post?.meta
+    ? getMetadataFromContentfulMetaItem(post.meta, path)
+    : notFoundMetadata;
 }
 
 export default async function Post({ params }: PostPageProps) {
