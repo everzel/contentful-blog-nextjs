@@ -1,0 +1,35 @@
+fragment PostsItemAuthorFragment on BlogAuthor {
+  name
+  slug
+  position
+  avatar {
+    url
+  }
+}
+
+fragment PostsItemFragment on BlogPost {
+  name
+  slug
+  description
+  publishedAt
+  author {
+    ...PostsItemAuthorFragment
+  }
+  image {
+    url
+  }
+}
+
+query PostEntries($limit: Int = 99, $exceptedSlugs: [String] = [], $authorSlug: String = null) {
+  blogPostCollection(
+    where: {
+      slug_not_in: $exceptedSlugs,
+      author: { slug_not: $authorSlug },
+    },
+    limit: $limit,
+  ) {
+    items {
+      ...PostsItemFragment
+    }
+  }
+}

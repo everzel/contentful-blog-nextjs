@@ -1,17 +1,11 @@
 'use client';
 
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import whiteBackIcon from '@/assets/icons/arrows/white-back.svg';
 
-interface ComponentProps {
-  children: React.ReactNode;
-}
-
-export default function BackButton({
-  children,
-}: ComponentProps): React.ReactElement {
+export default function BackButton({ children }: PropsWithChildren) {
   const router = useRouter();
 
   return (

@@ -1,0 +1,22 @@
+fragment PageItemMetaFragment on Meta {
+  title
+  description
+  indexable
+  image {
+    url
+  }
+}
+
+fragment PageItemFragment on Page {
+  meta {
+    ...PageItemMetaFragment
+  }
+}
+
+query PageEntry($slug: String!) {
+  pageCollection(where: { slug: $slug }) {
+    items {
+      ...PageItemFragment
+    }
+  }
+}

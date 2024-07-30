@@ -7,12 +7,14 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "vitest"
+    "test": "vitest",
+    "generate:gql-types": "graphql-codegen -r dotenv-flow/config"
   },
   "dependencies": {
+    "@apollo/client": "^3.11.1",
     "@types/nprogress": "^0.2.3",
     "graphql": "^16.9.0",
-    "graphql-request": "^7.1.0",
+    "graphql-tag": "^2.12.6",
     "markdown-to-jsx": "^7.4.7",
     "next": "14.2.5",
     "nprogress": "^0.2.0",
@@ -20,16 +22,21 @@
     "react-dom": "^18"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^5.0.2",
+    "@graphql-codegen/near-operation-file-preset": "^3.0.0",
+    "@graphql-codegen/typescript": "^4.0.9",
+    "@graphql-codegen/typescript-operations": "^4.2.3",
     "@testing-library/react": "^16.0.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@vitejs/plugin-react": "^4.3.1",
+    "dotenv-flow": "^4.1.0",
     "jsdom": "^24.1.1",
     "postcss": "^8",
-    "prettier": "3.3.3",
+    "prettier": "^3.3.3",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5",
+    "typescript": "^5.5.4",
     "vite-tsconfig-paths": "^4.3.2",
     "vitest": "^2.0.4"
   }

@@ -1,19 +1,14 @@
 import React from 'react';
-import { getBlogPosts } from '@/services/contentful/controllers/blog/post/listController';
-import { PostItemData } from '@/services/contentful/types/controllers/blog/post/listController';
 import Heading from '@/components/Topography/Heading';
 import Grid from '@/components/Blog/Grid/Grid';
 import GridItem from '@/components/Blog/Grid/GridItem';
+import { PostsItemFragmentFragment } from '@/services/contentful/controllers/blog/post/posts.generated';
 
-interface ComponentProps {
-  authorSlug: string;
+interface PostsProps {
+  posts: PostsItemFragmentFragment[];
 }
 
-export default async function Posts({
-  authorSlug,
-}: ComponentProps): Promise<React.ReactElement> {
-  const posts: PostItemData[] = await getBlogPosts({ authorSlug });
-
+export default async function Posts({ posts }: PostsProps) {
   return (
     <section className="w-full max-w-7xl mx-auto px-6 md:px-8 mb-8">
       <Heading

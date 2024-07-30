@@ -1,0 +1,31 @@
+fragment NavigationItemSocialLinkItemFragment on NavigationSocialLink {
+  type
+  url
+}
+
+fragment NavigationItemLinkItemFragment on NavigationLink {
+  name
+  url
+}
+
+fragment NavigationItemFragment on Navigation {
+  linksCollection(limit: 50) {
+    items {
+      ...NavigationItemLinkItemFragment
+    }
+  }
+
+  socialLinksCollection(limit: 50) {
+    items {
+      ...NavigationItemSocialLinkItemFragment
+    }
+  }
+}
+
+query NavigationEntry($slug: String!) {
+  navigationCollection(where: { slug: $slug }) {
+    items {
+      ...NavigationItemFragment
+    }
+  }
+}

@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import setPathMiddleware from '@/middlewares/setPathMiddleware';
+import setPathMiddleware from '@/middlewares/setPathMiddleware/setPathMiddleware';
 
 export function middleware(request: NextRequest): NextResponse {
   return setPathMiddleware(request);

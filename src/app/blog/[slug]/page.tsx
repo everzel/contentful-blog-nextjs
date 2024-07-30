@@ -1,38 +1,35 @@
 import React from 'react';
 import Header from '@/components/Blog/Post/Header';
-import { getBlogPost } from '@/services/contentful/controllers/blog/post/getController';
+import { getPost } from '@/services/contentful/controllers/blog/post/getPost';
 import Content from '@/components/Blog/Post/Content/Content';
 import RelatedPosts from '@/components/Blog/Post/RelatedPosts';
 import { notFound } from 'next/navigation';
-import { getMetadataFromContentfulMetaItem } from '@/lib/metadata';
+import { getMetadataFromContentfulMetaItem } from '@/utils/metadata/metadata';
 import { route } from '@/app/routes';
-import { Metadata } from 'next';
 import { metadata as notFoundMetadata } from '@/app/not-found';
+import { getPosts } from '@/services/contentful/controllers/blog/post/getPosts';
 
-interface ComponentProps {
+interface PostPageProps {
   params: {
     slug: string;
   };
 }
 
-export async function generateMetadata({
-  params,
-}: ComponentProps): Promise<Metadata> {
-  const post = await getBlogPost(params.slug);
+export async function generateMetadata({ params }: PostPageProps) {
+  const post = await getPost(params.slug);
+  const path = route('post', { slug: params.slug });
 
-  if (!post) {
-    return notFoundMetadata;
-  }
-
-  const path = route('post', { slug: post.slug });
-
-  return getMetadataFromContentfulMetaItem(post.meta, path);
+  return post?.meta
+    ? getMetadataFromContentfulMetaItem(post.meta, path)
+    : notFoundMetadata;
 }
 
-export default async function Page({
-  params,
-}: ComponentProps): Promise<React.ReactElement> {
-  const post = await getBlogPost(params.slug);
+export default async function Post({ params }: PostPageProps) {
+  const post = await getPost(params.slug);
+  const relatedPosts = await getPosts({
+    limit: 3,
+    exceptedSlugs: [params.slug],
+  });
 
   if (!post) {
     notFound();
@@ -41,8 +38,8 @@ export default async function Page({
   return (
     <>
       <Header post={post} />
-      <Content content={post.content} />
-      <RelatedPosts exceptedSlug={post.slug} />
+      <Content content={post.content as string} />
+      <RelatedPosts posts={relatedPosts} />
     </>
   );
 }

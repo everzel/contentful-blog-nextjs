@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 
-interface ComponentProps {
+interface HeadingProps extends PropsWithChildren {
   level: 1 | 2 | 3 | 4 | 5 | 6;
   tag?: string;
   className?: string;
-  children: React.ReactNode;
 }
 
 const classesMap: {
@@ -23,7 +22,7 @@ export default function Heading({
   children,
   tag,
   className,
-}: ComponentProps): React.ReactElement {
+}: HeadingProps) {
   return React.createElement(
     tag || `h${level}`,
     {

@@ -1,20 +1,20 @@
 'use client';
 
+import type { PostItemFragmentFragment } from '@/services/contentful/controllers/blog/post/post.generated';
 import React from 'react';
-import { PostPageData } from '@/services/contentful/types/controllers/blog/post/getController';
 import BackButton from '@/components/UI/Buttons/BackButton';
-import { wsrvImageLoader } from '@/lib/imageLoader';
+import { wsrvImageLoader } from '@/utils/imageLoader/imageLoader';
 import Heading from '@/components/Topography/Heading';
 import AuthorCard from '@/components/Blog/Common/AuthorCard';
-import { formatDate } from '@/lib/formatDate';
+import { formatDate } from '@/utils/formatDate/formatDate';
 
-interface ComponentProps {
-  post: PostPageData;
+interface HeaderProps {
+  post: PostItemFragmentFragment;
 }
 
-export default function Header({ post }: ComponentProps): React.ReactElement {
+export default function Header({ post }: HeaderProps) {
   const backgroundURL = wsrvImageLoader({
-    src: post.image_url,
+    src: post.image?.url!,
     width: 1400,
     quality: 100,
   });
@@ -39,13 +39,13 @@ export default function Header({ post }: ComponentProps): React.ReactElement {
 
         <div className="flex items-center justify-between">
           <AuthorCard
-            author={post.author}
+            author={post.author!}
             type="link"
             color="white"
             size="large"
           />
 
-          <span className="text-white">{formatDate(post.published_at)}</span>
+          <span className="text-white">{formatDate(post.publishedAt)}</span>
         </div>
       </div>
     </section>

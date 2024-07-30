@@ -1,18 +1,40 @@
 'use client';
 
-import { AuthorPageData } from '@/services/contentful/types/controllers/blog/author/getController';
-import React from 'react';
+import type { AuthorItemFragmentFragment } from '@/services/contentful/controllers/blog/author/author.generated';
+import React, { useMemo } from 'react';
 import BackButton from '@/components/UI/Buttons/BackButton';
 import Image from 'next/image';
-import { wsrvImageLoader } from '@/lib/imageLoader';
+import { wsrvImageLoader } from '@/utils/imageLoader/imageLoader';
 import defaultBackground from '@/assets/images/author/default-background.png';
 import Heading from '@/components/Topography/Heading';
 
-interface ComponentProps {
-  author: AuthorPageData;
+interface HeaderProps {
+  author: AuthorItemFragmentFragment;
 }
 
-export default function Header({ author }: ComponentProps): React.ReactElement {
+interface AboutContent {
+  json: {
+    content: Array<{
+      content: Array<{
+        value: string;
+      }>;
+    }>;
+  };
+}
+
+export default function Header({ author }: HeaderProps) {
+  const about = useMemo(() => {
+    const content = author.about as AboutContent;
+
+    return content.json.content
+      .map((element): string => {
+        return element.content
+          .map((contentElement): string => contentElement.value)
+          .join('<br>');
+      })
+      .join('<br><br>');
+  }, []);
+
   return (
     <section className="relative pb-4 md:pb-8">
       <div className="w-full max-w-7xl mx-auto px-8 lg:px-11 max-md:px-4 pt-6 z-20 relative">
@@ -24,7 +46,7 @@ export default function Header({ author }: ComponentProps): React.ReactElement {
           <div className="bg-black absolute top-0 left-0 z-0 h-60 w-full min-h-[240px]">
             <Image
               loader={wsrvImageLoader}
-              src={author.background_url || defaultBackground}
+              src={author.background?.url || defaultBackground}
               alt={`Background image for ${author.name}`}
               className="opacity-90 w-full h-full object-cover"
               priority={true}
@@ -35,10 +57,10 @@ export default function Header({ author }: ComponentProps): React.ReactElement {
           <div className="flex items-center justify-center sm:justify-start relative z-10 mb-5">
             <Image
               loader={wsrvImageLoader}
-              src={author.image_url}
+              src={author.avatar?.url!}
               width={190}
               height={190}
-              alt={author.name}
+              alt={author.name!}
               className="border-4 border-solid border-white rounded-full w-[200px]"
               priority={true}
             />
@@ -57,9 +79,9 @@ export default function Header({ author }: ComponentProps): React.ReactElement {
               )}
             </div>
 
-            {author.about?.length && (
+            {about?.length && (
               <div className="w-full md:w-1/2 text-base text-gray-900 text-center md:text-left">
-                {author.about}
+                {about}
               </div>
             )}
           </div>

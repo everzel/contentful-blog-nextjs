@@ -1,0 +1,41 @@
+fragment PostItemMetaFragment on Meta {
+  title
+  description
+  indexable
+  image {
+    url
+  }
+}
+
+fragment PostItemAuthorFragment on BlogAuthor {
+  name
+  slug
+  position
+  avatar {
+    url
+  }
+}
+
+fragment PostItemFragment on BlogPost {
+  name
+  slug
+  content
+  publishedAt
+  author {
+    ...PostItemAuthorFragment
+  }
+  meta {
+    ...PostItemMetaFragment
+  }
+  image {
+    url
+  }
+}
+
+query PostEntry($slug: String) {
+  blogPostCollection(where: { slug: $slug }) {
+    items {
+      ...PostItemFragment
+    }
+  }
+}

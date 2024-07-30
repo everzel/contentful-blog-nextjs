@@ -1,14 +1,14 @@
 'use client';
 
+import type { AuthorItemFragmentFragment } from '@/services/contentful/controllers/blog/author/author.generated';
 import React from 'react';
-import { PostAuthorData } from '@/services/contentful/types/controllers/blog/post/common';
 import Link from 'next/link';
 import { route } from '@/app/routes';
 import Image from 'next/image';
-import { wsrvImageLoader } from '@/lib/imageLoader';
+import { wsrvImageLoader } from '@/utils/imageLoader/imageLoader';
 
-interface ComponentProps {
-  author: PostAuthorData;
+interface AuthorCardProps {
+  author: AuthorItemFragmentFragment;
   size?: 'small' | 'large';
   color?: 'white' | 'black';
   type?: 'link' | 'block';
@@ -19,7 +19,7 @@ export default function AuthorCard({
   size = 'small',
   color = 'black',
   type = 'block',
-}: ComponentProps): React.ReactElement {
+}: AuthorCardProps) {
   return (
     <>
       <div
@@ -27,17 +27,17 @@ export default function AuthorCard({
       >
         {type === 'link' && (
           <Link
-            href={route('author', { slug: author.slug })}
+            href={route('author', { slug: author.slug! })}
             className="absolute inset-0 w-full h-full z-10"
           />
         )}
 
         <Image
           loader={wsrvImageLoader}
-          src={author.image_url}
+          src={author.avatar?.url!}
           width={size === 'small' ? 40 : 60}
           height={size === 'small' ? 40 : 60}
-          alt={author.name}
+          alt={author.name!}
           className={`rounded-full group-hover/author:opacity-60 mt-1 transition-all ${size === 'small' ? 'w-10 h-10' : 'w-14 h-14'}`}
         />
 
