@@ -1,8 +1,5 @@
-import type {
-  PageEntryQuery,
-  PageEntryQueryVariables,
-} from './query.generated';
-import QUERY from './query.gql';
+import type { PageEntryQuery, PageEntryQueryVariables } from './page.generated';
+import QUERY from './page.gql';
 import { getApolloClient } from '@/services/apollo';
 
 export async function getPage(slug: string) {

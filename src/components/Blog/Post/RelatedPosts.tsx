@@ -1,4 +1,4 @@
-import type { PostsItemFragmentFragment } from '@/services/contentful/controllers/blog/post/list/query.generated';
+import type { PostsItemFragmentFragment } from '@/services/contentful/controllers/blog/post/posts.generated';
 import React from 'react';
 import Heading from '@/components/Topography/Heading';
 import Grid from '@/components/Blog/Grid/Grid';

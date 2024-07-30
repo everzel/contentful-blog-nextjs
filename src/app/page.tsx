@@ -1,9 +1,9 @@
 import Heading from '@/components/Topography/Heading';
 import React from 'react';
-import { getBlogPosts } from '@/services/contentful/controllers/blog/post/list/controller';
+import { getPosts } from '@/services/contentful/controllers/blog/post/getPosts';
 import GridItem from '@/components/Blog/Grid/GridItem';
 import Grid from '@/components/Blog/Grid/Grid';
-import { getPage } from '@/services/contentful/controllers/page/get/controller';
+import { getPage } from '@/services/contentful/controllers/page/getPage';
 import { headers } from 'next/headers';
 import { getMetadataFromContentfulMetaItem } from '@/utils/metadata/metadata';
 
@@ -15,7 +15,7 @@ export async function generateMetadata() {
 }
 
 export default async function Homepage() {
-  const posts = await getBlogPosts();
+  const posts = await getPosts();
 
   return (
     <section className="py-8 md:py-20">

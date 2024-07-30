@@ -1,17 +1,17 @@
 import type {
   PostEntriesQuery,
   PostEntriesQueryVariables,
-} from '@/services/contentful/controllers/blog/post/list/query.generated';
-import QUERY from './query.gql';
+} from '@/services/contentful/controllers/blog/post/posts.generated';
+import QUERY from './posts.gql';
 import { getApolloClient } from '@/services/apollo';
 
-interface GetBlogPostsParams {
+interface GetPostsParams {
   exceptedSlugs?: string[];
   authorSlug?: string;
   limit?: number;
 }
 
-export const getBlogPosts = async (params: GetBlogPostsParams = {}) => {
+export const getPosts = async (params: GetPostsParams = {}) => {
   const client = getApolloClient();
 
   const response = await client.query<

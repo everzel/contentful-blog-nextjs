@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { getMetadataFromContentfulMetaItem } from '@/utils/metadata/metadata';
-import { PageItemMetaFragmentFragment } from '@/services/contentful/controllers/page/get/query.generated';
+import { PageItemMetaFragmentFragment } from '@/services/contentful/controllers/page/page.generated';
 
 process.env = Object.assign(process.env, {
   APP_URL: 'https://example.com',

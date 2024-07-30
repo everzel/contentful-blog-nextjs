@@ -1,7 +1,7 @@
 import React, { PropsWithChildren } from 'react';
 import { Roboto } from 'next/font/google';
 import './globals.css';
-import { getNavigationItem } from '@/services/contentful/controllers/navigation/get/controller';
+import { getNavigation } from '@/services/contentful/controllers/navigation/getNavigation';
 import Footer from '@/components/Layouts/RootLayout/Footer/Footer';
 import Header from '@/components/Layouts/RootLayout/Header';
 
@@ -11,8 +11,8 @@ const roboto = Roboto({
 });
 
 export default async function RootLayout({ children }: PropsWithChildren) {
-  const headerData = await getNavigationItem('header');
-  const footerData = await getNavigationItem('footer');
+  const headerData = await getNavigation('header');
+  const footerData = await getNavigation('footer');
 
   return (
     <html lang="en">

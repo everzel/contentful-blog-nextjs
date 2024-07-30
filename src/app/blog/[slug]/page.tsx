@@ -1,13 +1,13 @@
 import React from 'react';
 import Header from '@/components/Blog/Post/Header';
-import { getBlogPost } from '@/services/contentful/controllers/blog/post/get/сontroller';
+import { getPost } from '@/services/contentful/controllers/blog/post/getPost';
 import Content from '@/components/Blog/Post/Content/Content';
 import RelatedPosts from '@/components/Blog/Post/RelatedPosts';
 import { notFound } from 'next/navigation';
 import { getMetadataFromContentfulMetaItem } from '@/utils/metadata/metadata';
 import { route } from '@/app/routes';
 import { metadata as notFoundMetadata } from '@/app/not-found';
-import { getBlogPosts } from '@/services/contentful/controllers/blog/post/list/controller';
+import { getPosts } from '@/services/contentful/controllers/blog/post/getPosts';
 
 interface PostPageProps {
   params: {
@@ -16,7 +16,7 @@ interface PostPageProps {
 }
 
 export async function generateMetadata({ params }: PostPageProps) {
-  const post = await getBlogPost(params.slug);
+  const post = await getPost(params.slug);
   const path = route('post', { slug: params.slug });
 
   return post?.meta
@@ -25,8 +25,8 @@ export async function generateMetadata({ params }: PostPageProps) {
 }
 
 export default async function Post({ params }: PostPageProps) {
-  const post = await getBlogPost(params.slug);
-  const relatedPosts = await getBlogPosts({
+  const post = await getPost(params.slug);
+  const relatedPosts = await getPosts({
     limit: 3,
     exceptedSlugs: [params.slug],
   });

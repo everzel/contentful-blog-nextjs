@@ -1,6 +1,6 @@
 'use client';
 
-import type { PostsItemFragmentFragment } from '@/services/contentful/controllers/blog/post/list/query.generated';
+import type { PostsItemFragmentFragment } from '@/services/contentful/controllers/blog/post/posts.generated';
 import React from 'react';
 import Link from 'next/link';
 import { route } from '@/app/routes';

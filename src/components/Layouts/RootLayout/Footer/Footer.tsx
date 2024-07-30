@@ -2,7 +2,7 @@ import type { SocialLinkProps } from '@/components/Layouts/RootLayout/Footer/Soc
 import type {
   NavigationItemFragmentFragment,
   NavigationItemSocialLinkItemFragmentFragment,
-} from '@/services/contentful/controllers/navigation/get/query.generated';
+} from '@/services/contentful/controllers/navigation/navigation.generated';
 import Link from 'next/link';
 import Image from 'next/image';
 import { route } from '@/app/routes';

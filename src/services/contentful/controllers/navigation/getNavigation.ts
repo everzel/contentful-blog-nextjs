@@ -1,11 +1,11 @@
 import type {
   NavigationEntryQuery,
   NavigationEntryQueryVariables,
-} from './query.generated';
-import QUERY from './query.gql';
+} from './navigation.generated';
+import QUERY from './navigation.gql';
 import { getApolloClient } from '@/services/apollo';
 
-export async function getNavigationItem(slug: string) {
+export async function getNavigation(slug: string) {
   const client = getApolloClient();
 
   const response = await client.query<

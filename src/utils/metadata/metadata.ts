@@ -1,4 +1,4 @@
-import type { PageItemMetaFragmentFragment } from '@/services/contentful/controllers/page/get/query.generated';
+import type { PageItemMetaFragmentFragment } from '@/services/contentful/controllers/page/page.generated';
 import { Metadata } from 'next';
 
 // TODO: This function expects different metadata types, but all of them are compatible with the PageItemMetaFragmentFragment type. Do I need to add all of these types or just stay like now?

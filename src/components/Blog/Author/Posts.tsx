@@ -2,7 +2,7 @@ import React from 'react';
 import Heading from '@/components/Topography/Heading';
 import Grid from '@/components/Blog/Grid/Grid';
 import GridItem from '@/components/Blog/Grid/GridItem';
-import { PostsItemFragmentFragment } from '@/services/contentful/controllers/blog/post/list/query.generated';
+import { PostsItemFragmentFragment } from '@/services/contentful/controllers/blog/post/posts.generated';
 
 interface PostsProps {
   posts: PostsItemFragmentFragment[];

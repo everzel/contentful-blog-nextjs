@@ -1,6 +1,6 @@
 'use client';
 
-import type { AuthorItemFragmentFragment } from '@/services/contentful/controllers/blog/author/get/query.generated';
+import type { AuthorItemFragmentFragment } from '@/services/contentful/controllers/blog/author/author.generated';
 import React, { useMemo } from 'react';
 import BackButton from '@/components/UI/Buttons/BackButton';
 import Image from 'next/image';

@@ -1,6 +1,6 @@
 'use client';
 
-import type { PostItemFragmentFragment } from '@/services/contentful/controllers/blog/post/get/query.generated';
+import type { PostItemFragmentFragment } from '@/services/contentful/controllers/blog/post/post.generated';
 import React from 'react';
 import BackButton from '@/components/UI/Buttons/BackButton';
 import { wsrvImageLoader } from '@/utils/imageLoader/imageLoader';

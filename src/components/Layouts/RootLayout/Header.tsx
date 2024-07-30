@@ -1,6 +1,6 @@
 'use client';
 
-import type { NavigationItemFragmentFragment } from '@/services/contentful/controllers/navigation/get/query.generated';
+import type { NavigationItemFragmentFragment } from '@/services/contentful/controllers/navigation/navigation.generated';
 import React, { useState } from 'react';
 import { route } from '@/app/routes';
 import Link from 'next/link';

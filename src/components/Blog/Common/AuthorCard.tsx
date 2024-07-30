@@ -1,6 +1,6 @@
 'use client';
 
-import type { AuthorItemFragmentFragment } from '@/services/contentful/controllers/blog/author/get/query.generated';
+import type { AuthorItemFragmentFragment } from '@/services/contentful/controllers/blog/author/author.generated';
 import React from 'react';
 import Link from 'next/link';
 import { route } from '@/app/routes';
