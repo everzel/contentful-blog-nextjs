@@ -1,6 +1,6 @@
-import { describe, expect, it, vi } from 'vitest';
-import { MetaItemData } from '@/services/contentful/types/meta';
+import { describe, expect, it } from 'vitest';
 import { getMetadataFromContentfulMetaItem } from '@/utils/metadata/metadata';
+import { PageItemMetaFragmentFragment } from '@/services/contentful/controllers/page/get/query.generated';
 
 process.env = Object.assign(process.env, {
   APP_URL: 'https://example.com',
@@ -8,10 +8,12 @@ process.env = Object.assign(process.env, {
 
 describe('metadata', () => {
   it('should return metadata', () => {
-    const metadata: MetaItemData = {
+    const metadata: PageItemMetaFragmentFragment = {
       title: 'Example title',
       description: 'Example description',
-      image_url: 'https://example.com/image.png',
+      image: {
+        url: 'https://example.com/image.png',
+      },
       indexable: true,
     };
 
@@ -35,14 +37,14 @@ describe('metadata', () => {
         url: pageUrl,
         title: metadata.title,
         description: metadata.description,
-        images: metadata.image_url,
+        images: metadata.image!.url,
       },
 
       twitter: {
         card: 'summary_large_image',
         title: metadata.title,
         description: metadata.description,
-        images: metadata.image_url,
+        images: metadata.image!.url,
       },
 
       alternates: {
