@@ -1,4 +1,4 @@
-import {
+import type {
   NavigationEntryQuery,
   NavigationEntryQueryVariables,
 } from './query.generated';

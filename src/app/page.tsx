@@ -1,6 +1,5 @@
 import Heading from '@/components/Topography/Heading';
 import React from 'react';
-import { PostItemData } from '@/services/contentful/types/controllers/blog/post/listController';
 import { getBlogPosts } from '@/services/contentful/controllers/blog/post/list/controller';
 import GridItem from '@/components/Blog/Grid/GridItem';
 import Grid from '@/components/Blog/Grid/Grid';
@@ -16,7 +15,7 @@ export async function generateMetadata() {
 }
 
 export default async function Homepage() {
-  const posts: PostItemData[] = await getBlogPosts();
+  const posts = await getBlogPosts();
 
   return (
     <section className="py-8 md:py-20">

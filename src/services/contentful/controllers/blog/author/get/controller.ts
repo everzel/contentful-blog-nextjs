@@ -1,9 +1,9 @@
-import QUERY from './query.gql';
-import { getApolloClient } from '@/services/apollo';
-import {
+import type {
   AuthorEntryQuery,
   AuthorEntryQueryVariables,
 } from '@/services/contentful/controllers/blog/author/get/query.generated';
+import QUERY from './query.gql';
+import { getApolloClient } from '@/services/apollo';
 
 export const getBlogAuthor = async (slug: string) => {
   const client = getApolloClient();

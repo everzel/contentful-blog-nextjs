@@ -1,8 +1,8 @@
+import type { PostsItemFragmentFragment } from '@/services/contentful/controllers/blog/post/list/query.generated';
 import React from 'react';
 import Heading from '@/components/Topography/Heading';
 import Grid from '@/components/Blog/Grid/Grid';
 import GridItem from '@/components/Blog/Grid/GridItem';
-import { PostsItemFragmentFragment } from '@/services/contentful/controllers/blog/post/list/query.generated';
 
 interface RelatedPostsProps {
   posts: PostsItemFragmentFragment[];

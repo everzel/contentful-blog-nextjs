@@ -17,7 +17,7 @@ interface PostPageProps {
 
 export async function generateMetadata({ params }: PostPageProps) {
   const post = await getBlogPost(params.slug);
-  const path = route('post', { slug: post.slug });
+  const path = route('post', { slug: params.slug });
 
   return post?.meta
     ? getMetadataFromContentfulMetaItem(post.meta, path)
@@ -38,7 +38,7 @@ export default async function Post({ params }: PostPageProps) {
   return (
     <>
       <Header post={post} />
-      <Content content={post.content} />
+      <Content content={post.content as string} />
       <RelatedPosts posts={relatedPosts} />
     </>
   );

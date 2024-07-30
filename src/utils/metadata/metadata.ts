@@ -1,6 +1,7 @@
+import type { PageItemMetaFragmentFragment } from '@/services/contentful/controllers/page/get/query.generated';
 import { Metadata } from 'next';
-import { PageItemMetaFragmentFragment } from '@/services/contentful/controllers/page/get/query.generated';
 
+// TODO: This function expects different metadata types, but all of them are compatible with the PageItemMetaFragmentFragment type. Do I need to add all of these types or just stay like now?
 export function getMetadataFromContentfulMetaItem(
   metadata: PageItemMetaFragmentFragment,
   path: string,

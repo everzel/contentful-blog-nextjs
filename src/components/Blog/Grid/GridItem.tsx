@@ -1,5 +1,6 @@
 'use client';
 
+import type { PostsItemFragmentFragment } from '@/services/contentful/controllers/blog/post/list/query.generated';
 import React from 'react';
 import Link from 'next/link';
 import { route } from '@/app/routes';
@@ -8,7 +9,6 @@ import { wsrvImageLoader } from '@/utils/imageLoader/imageLoader';
 import { formatDate } from '@/utils/formatDate/formatDate';
 import AuthorCard from '@/components/Blog/Common/AuthorCard';
 import Heading from '@/components/Topography/Heading';
-import { PostsItemFragmentFragment } from '@/services/contentful/controllers/blog/post/list/query.generated';
 
 interface GridItemProps {
   post: PostsItemFragmentFragment;

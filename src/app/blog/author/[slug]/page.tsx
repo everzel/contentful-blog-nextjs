@@ -16,7 +16,7 @@ interface AuthorPageProps {
 
 export async function generateMetadata({ params }: AuthorPageProps) {
   const author = await getBlogAuthor(params.slug);
-  const path = route('author', { slug: author.slug });
+  const path = route('author', { slug: params.slug });
 
   return author?.meta
     ? getMetadataFromContentfulMetaItem(author.meta, path)

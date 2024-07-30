@@ -1,12 +1,12 @@
 'use client';
 
+import type { PostItemFragmentFragment } from '@/services/contentful/controllers/blog/post/get/query.generated';
 import React from 'react';
 import BackButton from '@/components/UI/Buttons/BackButton';
 import { wsrvImageLoader } from '@/utils/imageLoader/imageLoader';
 import Heading from '@/components/Topography/Heading';
 import AuthorCard from '@/components/Blog/Common/AuthorCard';
 import { formatDate } from '@/utils/formatDate/formatDate';
-import { PostItemFragmentFragment } from '@/services/contentful/controllers/blog/post/get/query.generated';
 
 interface HeaderProps {
   post: PostItemFragmentFragment;

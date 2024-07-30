@@ -1,8 +1,8 @@
-import QUERY from './query.gql';
-import {
+import type {
   PostEntriesQuery,
   PostEntriesQueryVariables,
 } from '@/services/contentful/controllers/blog/post/list/query.generated';
+import QUERY from './query.gql';
 import { getApolloClient } from '@/services/apollo';
 
 interface GetBlogPostsParams {

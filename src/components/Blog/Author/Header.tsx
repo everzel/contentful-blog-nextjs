@@ -1,12 +1,12 @@
 'use client';
 
+import type { AuthorItemFragmentFragment } from '@/services/contentful/controllers/blog/author/get/query.generated';
 import React, { useMemo } from 'react';
 import BackButton from '@/components/UI/Buttons/BackButton';
 import Image from 'next/image';
 import { wsrvImageLoader } from '@/utils/imageLoader/imageLoader';
 import defaultBackground from '@/assets/images/author/default-background.png';
 import Heading from '@/components/Topography/Heading';
-import { AuthorItemFragmentFragment } from '@/services/contentful/controllers/blog/author/get/query.generated';
 
 interface HeaderProps {
   author: AuthorItemFragmentFragment;

@@ -1,11 +1,11 @@
 'use client';
 
+import type { AuthorItemFragmentFragment } from '@/services/contentful/controllers/blog/author/get/query.generated';
 import React from 'react';
 import Link from 'next/link';
 import { route } from '@/app/routes';
 import Image from 'next/image';
 import { wsrvImageLoader } from '@/utils/imageLoader/imageLoader';
-import { AuthorItemFragmentFragment } from '@/services/contentful/controllers/blog/author/get/query.generated';
 
 interface AuthorCardProps {
   author: AuthorItemFragmentFragment;
